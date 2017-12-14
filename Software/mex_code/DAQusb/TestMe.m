@@ -1,0 +1,1 @@
+fnDAQusb('Init');

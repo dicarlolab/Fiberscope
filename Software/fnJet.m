@@ -1,0 +1,22 @@
+function j=fnJet(A,Min,Max)
+N=isnan(A);
+a=(A-Min)./(Max-Min);
+a(a<0)=0;
+a(a>1)=1;
+a=round(a*63)+1;
+a(N)=1;
+J=jet(64);
+R=J(:,1);
+G=J(:,2);
+B=J(:,3);
+j=zeros(size(A,1),size(A,2),3);
+jR=R(a);
+jR(N)=0;
+jG=G(a);
+jG(N)=0;
+jB=B(a);
+jB(N)=0;
+j(:,:,1) = jR;
+j(:,:,2) = jG;
+j(:,:,3) = jB;
+

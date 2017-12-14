@@ -1,0 +1,36 @@
+function [] = slider_ex()
+% Help goes here.
+Sz = get(0,'screensize');
+S.fh = figure('units','pixels',...
+              'position',[10 30 Sz(3)-10 Sz(4)-60],...
+              'menubar','none',...
+              'name','slider_ex',...
+              'numbertitle','off',...
+              'resize','off');
+S.sl = uicontrol('style','slide',...
+                 'unit','pix',...
+                 'position',[80 20 Sz(3)-150 40],...
+                 'min',1,'max',8,'val',1,...
+                 'SliderStep',[1/7 1/7]); 
+S.ax = axes('units','pix','pos',[80 100 Sz(3)-150 Sz(4)-240]);
+% Now make some data.  Your data may be different, but the approach is the
+% same...
+x = 0:.01:1;
+hold on
+for ii = 1:8
+    S.L(ii) = plot(x,x.^ii);
+end
+set(S.L(2:8),'visible','off');  % Make all but one line invisible.
+S.CUR = 1;  % Store the currently visible line.
+S.LEG = legend('x^1');
+set(S.sl,'call',{@sl_call});  % Set the Callback.
+guidata(S.fh,S);  % Save S for later...
+function [] = sl_call(varargin)
+% Callback for the slider.
+S = guidata(gcbf);  % Get the stored data.
+set(S.L(S.CUR),'visible','off')
+V = get(S.sl,'val');
+set(S.L(V),'visible','on')
+set(S.LEG,'string',['x^',num2str(V)])
+S.CUR = V;
+guidata(gcbf,S)  % Save the updated structure.

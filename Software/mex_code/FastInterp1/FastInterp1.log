@@ -1,0 +1,17 @@
+﻿Build started 3/17/2015 10:56:18 AM.
+     1>Project "C:\Users\shayo\Dropbox (MIT)\Code\Waveform Reshaping code\FastInterp1\FastInterp1.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\MATLAB\R2014a_x64\extern\include /Zi /nologo /W3 /WX- /Od /D MX_COMPAT_32 /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D SELECTLABELS_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\x64\Debug\\" /Fd".\x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt FastInterp1.cpp
+         FastInterp1.cpp
+     1>FastInterp1.cpp(35): warning C4267: '=' : conversion from 'size_t' to 'mwSize', possible loss of data
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\Users\shayo\Dropbox (MIT)\Code\Waveform Reshaping code\FastInterp1\x64\Debug\FastInterp1.dll) does not match the Linker's OutputFile property value (C:\Users\shayo\Dropbox (MIT)\Code\MEX\x64\FastInterp1.mexw64). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1194,5): warning MSB8012: TargetExt(.dll) does not match the Linker's OutputFile property value (.mexw64). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\MEX\x64\FastInterp1.mexw64" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\MATLAB\R2014a_x64\extern\lib\win64\microsoft odbc32.lib odbccp32.lib libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:".\FastInterp1.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\x64\Debug\fndllFastInterp1.pdb" /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"x64\Debug\FastInterp1.lib" /MACHINE:X64 /DLL .\x64\Debug\FastInterp1.obj
+            Creating library x64\Debug\FastInterp1.lib and object x64\Debug\FastInterp1.exp
+         FastInterp1.vcxproj -> C:\Users\shayo\Dropbox (MIT)\Code\Waveform Reshaping code\FastInterp1\x64\Debug\FastInterp1.dll
+     1>Done Building Project "C:\Users\shayo\Dropbox (MIT)\Code\Waveform Reshaping code\FastInterp1\FastInterp1.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.31

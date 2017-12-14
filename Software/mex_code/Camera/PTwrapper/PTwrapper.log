@@ -1,0 +1,20 @@
+﻿  PTwrapper.cpp
+PTwrapper.cpp(310): warning C4244: 'initializing': conversion from 'float' to 'unsigned short', possible loss of data
+PTwrapper.cpp(318): warning C4305: 'initializing': truncation from 'double' to 'float'
+PTwrapper.cpp(333): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+PTwrapper.cpp(336): warning C4244: 'initializing': conversion from 'float' to 'unsigned short', possible loss of data
+PTwrapper.cpp(425): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+PTwrapper.cpp(457): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+PTwrapper.cpp(474): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+PTwrapper.cpp(476): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+PTwrapper.cpp(524): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+PTwrapper.cpp(796): warning C4244: '=': conversion from 'double' to 'unsigned long', possible loss of data
+PTwrapper.cpp(1132): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+PTwrapper.cpp(1139): warning C4800: 'unsigned char': forcing value to bool 'true' or 'false' (performance warning)
+PTwrapper.cpp(1152): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+PTwrapper.cpp(1157): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+PTwrapper.cpp(1204): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\Camera\PTwrapper\x64\Debug\PTwrapper.dll) does not match the Linker's OutputFile property value (C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\MEX\x64\PTwrapper.mexw64). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1190,5): warning MSB8012: TargetExt(.dll) does not match the Linker's OutputFile property value (.mexw64). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     Creating library x64\Debug\PTwrapper.lib and object x64\Debug\PTwrapper.exp
+  PTwrapper.vcxproj -> C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\Camera\PTwrapper\x64\Debug\PTwrapper.dll

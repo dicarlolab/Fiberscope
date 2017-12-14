@@ -1,0 +1,11 @@
+﻿Build started 12/28/2014 2:04:11 PM.
+     1>Project "C:\Users\shayo\Dropbox (MIT)\Code\Waveform Reshaping code\Camera\TestIS\TestIS.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\MATLAB\R2014a_x64\extern\include /Zi /nologo /W3 /WX- /O2 /Ob1 /D MX_COMPAT_32 /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D SELECTLABELS_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\x64\Release\\" /Fd".\x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt TestIS.cpp
+         TestIS.cpp
+     1>TestIS.cpp(4): fatal error C1083: Cannot open include file: 'C:\Users\Shay\SkyDrive\Waveform Reshaping code\Camera\The Imaging Source\C Code\include\tisgrabber.h': No such file or directory
+     1>Done Building Project "C:\Users\shayo\Dropbox (MIT)\Code\Waveform Reshaping code\Camera\TestIS\TestIS.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.23

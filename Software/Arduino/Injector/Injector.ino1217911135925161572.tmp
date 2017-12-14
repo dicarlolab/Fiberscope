@@ -1,0 +1,289 @@
+
+
+const int START_BUTTON_PIN = 18;
+const int MODE_BUTTON_PIN = 14;
+const int RESET_BUTTON_PIN = 15;
+const int VOLUME_BUTTON_PIN = 16;
+const int SPEED_BUTTON_PIN = 17;
+const int BUZZER_PIN = 20;
+
+const int MOTOR_DIRECTION_PIN = 7;
+const int MOTOR_STEP_PIN = 6;
+
+
+const int UP_BUTTON = VOLUME_BUTTON_PIN;
+const int DOWN_BUTTON = SPEED_BUTTON_PIN;
+
+
+const int DOWN_DIRECTION = 1;
+
+
+const int LCD_PIN1 = 12;
+const int LCD_PIN2 = 11;
+const int LCD_PIN3 = 5;
+const int LCD_PIN4 = 4;
+const int LCD_PIN5 = 3;
+const int LCD_PIN6 = 2;
+
+const int SYRINGE_TYPE_PIN = 14;
+const int RESET_VOLUME_PIN = 15;
+
+const int QUANTITY_PIN = 16;
+const int SPEED_PIN = 17;
+
+
+const int NUM_SYRINGE_TYPES = 4;
+const long SYRINGE_VOLUMES_NL[NUM_SYRINGE_TYPES] = {5000,10000,50000,100000};
+const long SYRINGE_LENGTH_UM[NUM_SYRINGE_TYPES] = {60000,60000,60000,60000};
+
+const int NUM_QUANTITIES_PRESETS = 16;
+const int NUM_SPEEDS_PRESETS = 12;
+const long QUANTITIES_TO_INJECT[NUM_QUANTITIES_PRESETS]={25,50, 100, 200, 250, 500, 750, 1000, 1250, 1500, 2000, 2500, 3000, 3500, 4000, 5000};
+const long SPEEDS_NL_PER_MINUTE[NUM_SPEEDS_PRESETS] = {10, 25, 50, 80, 100, 150, 200, 250, 500, 1000, 1500, 2000};
+  
+const long MOTOR_TTL_USEC = 50; // minimal time for motor to respond to step commands
+
+const double FullRotationInUM = 254; // 254 micron per revolusion, 100 TPI
+const double StepAngleDeg = 0.176 / 8.0;
+const double OneDegreeInUM = FullRotationInUM/360;
+const double OneStepInUM = StepAngleDeg * OneDegreeInUM;
+const double OneMicronInSteps = 1.0/OneStepInUM;
+
+long syringeType = 0;
+long motorPosition = 0;
+long quantityPreset = 0;
+long amountInjectedNL = 0;
+long speedPreset = 0;
+
+// include the library code:
+#include <LiquidCrystal.h>
+
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(LCD_PIN1,LCD_PIN2,LCD_PIN3,LCD_PIN4,LCD_PIN5,LCD_PIN6);
+
+
+
+/*
+#include <EEPROM.h>
+
+
+int EEPROM_writeLong(int ee, const long& value)
+{
+    const byte* p = (const byte*)(const void*)&value;
+    unsigned int i;
+    for (i = 0; i < sizeof(value); i++)
+          EEPROM.write(ee++, *p++);
+    return i;
+}
+
+ int EEPROM_readLong(int ee, long& value)
+{
+    byte* p = (byte*)(void*)&value;
+    unsigned int i;
+    for (i = 0; i < sizeof(value); i++)
+          *p++ = EEPROM.read(ee++);
+    return i;
+}
+
+void  readVariablesFromROM()
+{
+  int i=0;
+  i+=EEPROM_readLong(i, motorPosition);
+  i+=EEPROM_readLong(i, syringeType);
+  i+=EEPROM_readLong(i, quantityPreset);  
+  i+=EEPROM_readLong(i, amountInjectedNL);  
+  i+=EEPROM_readLong(i, speedPreset);  
+}
+
+
+void  writeVariablesToROM()
+{
+  int i=0;
+  i+=EEPROM_writeLong(i, motorPosition);
+  i+=EEPROM_writeLong(i, syringeType);
+  i+=EEPROM_writeLong(i, quantityPreset);  
+  i+=EEPROM_writeLong(i, amountInjectedNL);  
+  i+=EEPROM_writeLong(i, speedPreset);  
+}
+*/
+
+void setup() {
+  // put your setup code here, to run once:
+  lcd.begin(16, 4);
+  Serial.begin(115200);
+//  readVariablesFromROM();
+  pinMode(START_BUTTON_PIN, INPUT);
+pinMode(MODE_BUTTON_PIN, INPUT);
+pinMode(RESET_BUTTON_PIN, INPUT);
+pinMode(VOLUME_BUTTON_PIN, INPUT);
+pinMode(SPEED_BUTTON_PIN, INPUT);
+
+
+pinMode(BUZZER_PIN, OUTPUT);
+digitalWrite(BUZZER_PIN,LOW);
+pinMode(MOTOR_DIRECTION_PIN, OUTPUT);
+pinMode(MOTOR_STEP_PIN, OUTPUT);
+  
+  UpdateScreen();
+}
+
+void UpdateScreen()
+{
+  long syringeVolumeUL = SYRINGE_VOLUMES_NL[syringeType]/1000;
+ long amountToInjectNL = QUANTITIES_TO_INJECT[quantityPreset];
+  
+lcd.setCursor(0, 0);
+lcd.print(String(syringeVolumeUL)+"ul Syringe");
+lcd.setCursor(0, 1);
+lcd.print(String(amountToInjectNL)+"nl to inject");
+lcd.setCursor(0, 2);
+lcd.print(String(amountToInjectNL)+"nl to inject");
+
+ZZZ ul/nl per sec/min
+AAA injected
+
+   
+lcd.setCursor(0, 1);   
+lcd.print(millis() / 1000);
+}
+
+void StartInjection() 
+{
+  long syringeVolumeNL = SYRINGE_VOLUMES_NL[syringeType];
+  long syringeLengthUM = SYRINGE_LENGTH_UM[syringeType];
+  
+  long amountToInjectNL = QUANTITIES_TO_INJECT[quantityPreset];
+  double speedNLperSec = SPEEDS_NL_PER_MINUTE[speedPreset]/60.0;
+      
+  double OneNanoLiterInUM = syringeLengthUM/syringeVolumeNL;
+  double OneNanoLiterInSteps = OneNanoLiterInUM * OneMicronInSteps;
+  double OneStepInNanoLiter = 1.0/OneNanoLiterInSteps;
+  
+  double NanoliterLeftToInject = amountToInjectNL - amountInjectedNL;
+  // translate that to steps
+  long NumSteps = NanoliterLeftToInject * OneNanoLiterInSteps;
+
+  double StepsPerSeconds = speedNLperSec * OneNanoLiterInSteps;
+  double InterStepTimeUsec = 1000000.0/StepsPerSeconds;
+  // translate speed (nl/sec) to steps / sec and find the inter-step interval
+  
+  digitalWrite(MOTOR_DIRECTION_PIN, DOWN_DIRECTION ? HIGH : LOW);
+  long Counter = 0;
+  
+  while (true)
+  {
+    digitalWrite(MOTOR_STEP_PIN, HIGH);
+    delayMicroseconds(MOTOR_TTL_USEC);
+    digitalWrite(MOTOR_STEP_PIN, LOW);
+    delayMicroseconds(InterStepTimeUsec-MOTOR_TTL_USEC);
+    Counter++;
+    amountInjectedNL += OneStepInNanoLiter;
+    motorPosition++;
+    
+    if (Counter%100==0)
+    {
+       UpdateScreen(); 
+    }
+    
+    if (Counter >= NumSteps)
+    {
+      // finished injecting the desired volume
+      break;
+    }
+    
+    if (!digitalRead(START_BUTTON_PIN))
+    {
+      // user aborted.
+      break;
+    }
+    
+  }
+
+//   writeVariablesToROM();
+  // wait until user turn off the start button (?)  
+   while (digitalRead(START_BUTTON_PIN));
+   delay(100);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Serial.println(digitalRead(RESET_BUTTON_PIN));
+  delay(100);
+  return;
+  
+  if (digitalRead(START_BUTTON_PIN))
+    StartInjection();
+ 
+  while ( digitalRead(UP_BUTTON))
+  {
+    digitalWrite(MOTOR_DIRECTION_PIN, !DOWN_DIRECTION ? HIGH : LOW);
+    digitalWrite(MOTOR_STEP_PIN, HIGH);
+    delayMicroseconds(MOTOR_TTL_USEC);
+    digitalWrite(MOTOR_STEP_PIN, LOW);
+  }
+
+  while (digitalRead(DOWN_BUTTON))
+  {
+    digitalWrite(MOTOR_DIRECTION_PIN, DOWN_DIRECTION ? HIGH : LOW);
+    digitalWrite(MOTOR_STEP_PIN, HIGH);
+    delayMicroseconds(MOTOR_TTL_USEC);
+    digitalWrite(MOTOR_STEP_PIN, LOW);
+  }
+ 
+ if (digitalRead(SYRINGE_TYPE_PIN))
+ {
+   
+   while (digitalRead(SYRINGE_TYPE_PIN));
+   delay(100);
+ }
+
+ if (digitalRead(SYRINGE_TYPE_PIN))
+ {
+   syringeType++;
+   if (syringeType >= NUM_SYRINGE_TYPES)
+     syringeType = 0;
+     
+   while (digitalRead(SYRINGE_TYPE_PIN));
+   delay(100);
+ }
+ 
+ if (digitalRead(RESET_VOLUME_PIN))
+ {
+   amountInjectedNL = 0;
+   while (digitalRead(RESET_VOLUME_PIN));
+ }
+
+
+
+ if (digitalRead(QUANTITY_PIN))
+ {
+   quantityPreset++;
+   if (quantityPreset >= NUM_QUANTITIES_PRESETS)
+     quantityPreset = 0;
+     
+   while (digitalRead(QUANTITY_PIN));
+   delay(100);
+ }
+
+
+ if (digitalRead(SPEED_PIN))
+ {
+   speedPreset++;
+   if (speedPreset >= NUM_SPEEDS_PRESETS)
+     speedPreset = 0;
+     
+   while (digitalRead(SPEED_PIN));
+   delay(100);
+ }
+
+/*
+01234567890123456789
+XXXul syringe
+YYYYYY nl to inject
+ZZZ ul/nl per sec/min
+AAA injected
+
+sec/min = on/off
+*/
+
+}

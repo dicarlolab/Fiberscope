@@ -1,0 +1,9 @@
+function pTest=ttestImageSequence(SS, BB)
+mn = min(size(SS,3), size(BB,3));
+D = SS(:,:,1:mn)-BB(:,:,1:mn);
+df = mn-1;
+Dmean = mean(D,3);
+Dstd = nanstd(D,[],3);
+ser = Dstd ./ sqrt(mn);
+tval = (Dmean) ./ ser;
+pTest = 2 * tcdf(-abs(tval), df);

@@ -1,0 +1,27 @@
+﻿  FastUpSampling.cpp
+FastUpSampling.cpp(41): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  FastUpSampling.cpp(81): note: see reference to function template instantiation 'void CalcInterpolation<float>(T *,float *,int,int,int,int,int,int)' being compiled
+          with
+          [
+              T=float
+          ]
+FastUpSampling.cpp(42): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+FastUpSampling.cpp(30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  FastUpSampling.cpp(86): note: see reference to function template instantiation 'void CalcInterpolation<double>(T *,float *,int,int,int,int,int,int)' being compiled
+          with
+          [
+              T=double
+          ]
+FastUpSampling.cpp(46): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+FastUpSampling.cpp(47): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+FastUpSampling.cpp(48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+FastUpSampling.cpp(49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+FastUpSampling.cpp(46): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+FastUpSampling.cpp(47): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+FastUpSampling.cpp(48): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+FastUpSampling.cpp(49): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\FastUpSampling\x64\Release\FastUpSampling.dll) does not match the Linker's OutputFile property value (C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\MEX\x64\FastUpSampling.mexw64). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1190,5): warning MSB8012: TargetExt(.dll) does not match the Linker's OutputFile property value (.mexw64). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     Creating library x64\Release\FastUpSampling.lib and object x64\Release\FastUpSampling.exp
+  FastUpSampling.vcxproj -> C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\FastUpSampling\x64\Release\FastUpSampling.dll
+  FastUpSampling.vcxproj -> .\x64\Release\fndllFastUpSampling.pdb (Full PDB)

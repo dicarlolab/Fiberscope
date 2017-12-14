@@ -1,0 +1,2830 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>xiApi.NETX64</name>
+    </assembly>
+    <members>
+        <member name="T:xiApi.NET.BINNING_SELECTOR">
+            <summary>
+            Selects which binning engine is configured by BinningHorizontal, BinningVertical and BinningPattern parameters
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.BINNING_SELECTOR.SENSOR">
+            <summary>
+            Sensor binning engine selected (if available)
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.BINNING_PATTERN">
+            <summary>
+            Selects Binning pattern type.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.BINNING_PATTERN.MONO">
+            <summary>
+            Monochrome type binning - adjacent pixels are combined.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.BINNING_PATTERN.BAYER">
+            <summary>
+            Bayer type binning - bayer pattern is preserved during pixel combining.
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.DECIMATION_SELECTOR">
+            <summary>
+            Selects which decimation engine is configured by DecimationHorizontal, DecimationVertical and DecimationPattern parameters
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.DECIMATION_SELECTOR.SENSOR">
+            <summary>
+            Sensor decimation engine selected (if available)
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.DECIMATION_PATTERN">
+            <summary>
+            Selects Decimation pattern type.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.DECIMATION_PATTERN.MONO">
+            <summary>
+            Monochrome type decimation - adjacent pixels are skipped.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.DECIMATION_PATTERN.BAYER">
+            <summary>
+            Bayer type decimation - bayer pattern is preserved during pixel skipping.
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.DOWNSAMPLING_TYPE">
+            <summary>
+            Downsampling type, switch between binning and skipping, to be used with the PRM.DOWNSAMPLING_TYPE function parameter.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.DOWNSAMPLING_TYPE.BINNING">
+            <summary>
+            Binned type for higher sensitivity.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.DOWNSAMPLING_TYPE.SKIPPING">
+            <summary>
+            Skipped type for higher framerates.
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.TEST_PATTERN_GENERATOR_SELECTOR">
+            <summary>
+            Selects which test pattern generator is used.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN_GENERATOR_SELECTOR.SENSOR">
+            <summary>
+            Sensor test pattern generator engine selected (if available)
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN_GENERATOR_SELECTOR.FPGA">
+            <summary>
+            FPGA test pattern generator engine selected (if available)
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.TEST_PATTERN">
+            <summary>
+            Selects which test pattern type is used on the selected generator.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.OFF">
+            <summary>
+            Testpattern turned off
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.BLACK">
+            <summary>
+            Image is filled with darkest possible image.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.WHITE">
+            <summary>
+            Image is filled with brightest possible image.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.GREY_HORIZ_RAMP">
+            <summary>
+            Image is filled horizontally with an image that goes from the darkest possible value to the brightest.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.GREY_VERT_RAMP">
+            <summary>
+            Image is filled vertically with an image that goes from the darkest possible value to the brightest.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.GREY_HORIZ_RAMP_MOVING">
+            <summary>
+            Image is filled horizontally with an image that goes from the darkest possible value to the brightest and moves from left to right.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.GREY_VERT_RAMP_MOVING">
+            <summary>
+            Image is filled vertically with an image that goes from the darkest possible value to the brightest and moves from left to right.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.HORIZ_LINE_MOVING">
+            <summary>
+            A moving horizontal line is superimposed on the live image.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.VERT_LINE_MOVING">
+            <summary>
+            A moving vertical line is superimposed on the live image.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.COLOR_BAR">
+            <summary>
+            Image is filled with stripes of color including White, Black, Red, Green, Blue, Cyan, Magenta and Yellow.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.FRAME_COUNTER">
+            <summary>
+            A frame counter is superimposed on the live image.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TEST_PATTERN.DEVICE_SPEC_COUNTER">
+            <summary>
+            On some devices (PCIe) it is 128bit counter.
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.SHUTTER_TYPE">
+            <summary>
+            Switch between sensor shutter types, to be used with the PRM.SHUTTER_TYPE function parameter.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.SHUTTER_TYPE.SHUTTER_GLOBAL">
+            <summary>
+            Sensor Global Shutter(CMOS sensor).
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.SHUTTER_TYPE.SHUTTER_ROLLING">
+            <summary>
+            Sensor Electronic Rolling Shutter(CMOS sensor).
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.SHUTTER_TYPE.SHUTTER_GLOBAL_RESET_RELEASE">
+            <summary>
+            Sensor Global Reset Release Shutter(CMOS sensor).
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.GAIN_SELECTOR_TYPE">
+            <summary>
+            Selects gain to be set with Gain parameters. 
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.GAIN_SELECTOR_TYPE.GAIN_SELECTOR_ALL">
+            <summary>
+            Gain selector selects all channels. Implementation of gain type depends on camera.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.GAIN_SELECTOR_TYPE.GAIN_SELECTOR_ANALOG_ALL">
+            <summary>
+            Gain selector selects all analog channels. This is available only on some cameras.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.GAIN_SELECTOR_TYPE.GAIN_SELECTOR_DIGITAL_ALL">
+            <summary>
+            Gain selector selects all digital channels. This is available only on some cameras.
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.IMG_FORMAT">
+            <summary>
+            Output image format definitions to be used with the PRM.IMAGE_DATA_FORMAT function parameter.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_FORMAT.MONO8">
+            <summary>
+            Monochrome image with 8 bits per pixel.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_FORMAT.MONO16">
+            <summary>
+            Monochrome image with 16 bits per pixel.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_FORMAT.RGB24">
+             <summary>
+            RGB  image data format image with 8 bits per pixel.
+             </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_FORMAT.RGB32">
+            <summary>
+            RGBA image data format image with 8 bits per pixel, Alpha values not valid.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_FORMAT.RGBPLANAR">
+            <summary>
+            RGB planar image data format image with 8 bits per pixel.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_FORMAT.RAW8">
+            <summary>
+            8 bits per pixel raw data from sensor.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_FORMAT.RAW16">
+            <summary>
+            16 bits per pixel raw data from sensor.
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.IMG_COLOR_FILTER_ARRAY">
+            <summary>
+            Output image color filter array of RAW images.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_COLOR_FILTER_ARRAY.NONE">
+            <summary>
+            B/W sensors.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_COLOR_FILTER_ARRAY.BAYER_RGGB">
+            <summary>
+            Regular Bayer RGGB readout
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_COLOR_FILTER_ARRAY.CMYG">
+             <summary>
+            AK Sony sensors
+             </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_COLOR_FILTER_ARRAY.RGR">
+            <summary>
+            2R+G readout of RGGB sensor
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_COLOR_FILTER_ARRAY.BAYER_BGGR">
+            <summary>
+            Bayer BGGR readout
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_COLOR_FILTER_ARRAY.BAYER_GRBG">
+            <summary>
+            Bayer GRBG readout
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.IMG_COLOR_FILTER_ARRAY.BAYER_GBRG">
+            <summary>
+            Bayer GBRG readout
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.BUFF_POLICY">
+            <summary>
+            Buffer policy settings(can be safe, data will be copied to user/app buffer or unsafe, user will get internally allocated buffer without data copy).
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.BUFF_POLICY.UNSAFE">
+            <summary>
+            User gets pointer to internally allocated circle buffer and data may be overwritten by device.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.BUFF_POLICY.SAFE">
+            <summary>
+            Data from device will be copied to user allocated buffer or xiApi allocated memory.
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.TRG_SOURCE">
+            <summary>
+            Definitions for camera trigger functionality.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TRG_SOURCE.OFF">
+            <summary> Camera works in free run mode.</summary>
+        </member>
+        <member name="F:xiApi.NET.TRG_SOURCE.EDGE_RISING">
+            <summary> External trigger (rising edge).</summary>
+        </member>
+        <member name="F:xiApi.NET.TRG_SOURCE.EDGE_FALLING">
+            <summary> External trigger (falling edge).</summary>
+        </member>
+        <member name="F:xiApi.NET.TRG_SOURCE.SOFTWARE">
+            <summary> Software(manual) trigger.</summary>
+        </member>
+        <member name="T:xiApi.NET.TRG_SELECTOR">
+            <summary>
+            Definitions containing information about trigger functionality.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TRG_SELECTOR.FRAME_START">
+            <summary> Selects a trigger starting the capture of one frame.</summary>
+        </member>
+        <member name="F:xiApi.NET.TRG_SELECTOR.EXPOSURE_ACTIVE">
+            <summary> Selects a trigger controlling the duration of one frame.</summary>
+        </member>
+        <member name="F:xiApi.NET.TRG_SELECTOR.FRAME_BURST_START">
+            <summary> Selects a trigger starting the capture of the bursts of frames in an acquisition.</summary>
+        </member>
+        <member name="F:xiApi.NET.TRG_SELECTOR.FRAME_BURST_ACTIVE">
+            <summary> Selects a trigger controlling the duration of the capture of the bursts of frames in an acquisition.</summary>
+        </member>
+        <member name="T:xiApi.NET.ACQ_TIMING_MODE">
+            <summary>
+            Definitions containing information about acqisition timing modes.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.ACQ_TIMING_MODE.FREE_RUN">
+            <summary> Selects a trigger starting the capture of one frame.</summary>
+        </member>
+        <member name="F:xiApi.NET.ACQ_TIMING_MODE.FRAME_RATE">
+            <summary> Selects a trigger controlling the duration of one frame.</summary>
+        </member>
+        <member name="T:xiApi.NET.GPI_MODE">
+            <summary>
+            GPI port state options
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.GPI_MODE.OFF">
+            <summary> Input off.</summary>
+        </member>
+        <member name="F:xiApi.NET.GPI_MODE.TRIGGER">
+            <summary> Trigger input.</summary>
+        </member>
+        <member name="F:xiApi.NET.GPI_MODE.EXT_EVENT">
+            <summary> External signal input. It is not implemented yet.</summary>
+        </member>
+        <member name="T:xiApi.NET.GPO_MODE">
+            <summary>
+            GPO port state options
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.GPO_MODE.OFF">
+            <summary> Output off.</summary>
+        </member>
+        <member name="F:xiApi.NET.GPO_MODE.ON">
+            <summary> Logical level.</summary>
+        </member>
+        <member name="F:xiApi.NET.GPO_MODE.FRAME_ACTIVE">
+            <summary> High during exposure(integration) time + readout time + data transfer time.</summary>
+        </member>
+        <member name="F:xiApi.NET.GPO_MODE.FRAME_ACTIVE_NEG">
+            <summary> Low during exposure(integration) time + readout time + data trasnfer time.</summary>
+        </member>
+        <member name="F:xiApi.NET.GPO_MODE.EXPOSURE_ACTIVE">
+            <summary> High during exposure(integration) time.</summary>
+        </member>
+        <member name="F:xiApi.NET.GPO_MODE.EXPOSURE_ACTIVE_NEG">
+            <summary> Low during exposure(integration) time.</summary>
+        </member>
+        <member name="F:xiApi.NET.GPO_MODE.FRAME_TRIGGER_READY">
+            <summary> On when sensor is ready for next trigger edge. </summary>
+        </member>
+        <member name="F:xiApi.NET.GPO_MODE.FRAME_TRIGGER_READY_NEG">
+            <summary> Off when sensor is ready for next trigger edge. </summary>
+        </member>
+        <member name="F:xiApi.NET.GPO_MODE.EXPOSURE_PULSE">
+            <summary> Short On/Off pulse on start of each exposure. </summary>
+        </member>
+        <member name="F:xiApi.NET.GPO_MODE.EXPOSURE_PULSE_NEG">
+            <summary> Short Off/On pulse on start of each exposure. </summary>
+        </member>
+        <member name="T:xiApi.NET.LED_MODE">
+            <summary>
+            Camera LED state options
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.LED_MODE.LED_HEARTBEAT">
+            <summary> Blink if link is ok (led 1), heartbeat mode (led 2).</summary>
+        </member>
+        <member name="F:xiApi.NET.LED_MODE.LED_TRIGGER_ACTIVE">
+            <summary> Blink led if trigger detected.</summary>
+        </member>
+        <member name="F:xiApi.NET.LED_MODE.LED_EXT_EVENT_ACTIVE">
+            <summary> Blink led if external signal detected.</summary>
+        </member>
+        <member name="F:xiApi.NET.LED_MODE.LED_ACQUISITION">
+            <summary> Blink led during data streaming.</summary>
+        </member>
+        <member name="F:xiApi.NET.LED_MODE.LED_EXPOSURE_ACTIVE">
+            <summary> Blink led during sensor integration time.</summary>
+        </member>
+        <member name="F:xiApi.NET.LED_MODE.LED_FRAME_ACTIVE">
+            <summary> Blink if device busy/not busy.</summary>
+        </member>
+        <member name="F:xiApi.NET.LED_MODE.LED_LINK">
+            <summary> Blink led if link is ok.</summary>
+        </member>
+        <member name="F:xiApi.NET.LED_MODE.LED_OFF">
+            <summary> Set led to zero.</summary>
+        </member>
+        <member name="F:xiApi.NET.LED_MODE.LED_ON">
+            <summary> Set led to one.</summary>
+        </member>
+        <member name="T:xiApi.NET.COUNTER_SELECTOR">
+            <summary>
+            Definitions containing information about frames counter selector.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.COUNTER_SELECTOR.CNT_SEL_TRANSPORT_SKIPPED_FRAMES">
+            <summary> Number of skipped frames on transport layer (e.g. when image gets lost while transmission). Occur when capacity of transport channel does not allow to transfer all data.</summary>
+        </member>
+        <member name="F:xiApi.NET.COUNTER_SELECTOR.CNT_SEL_API_SKIPPED_FRAMES">
+            <summary> Number of skipped frames on API layer. Occur when application does not process the images as quick as they are received from the camera.</summary>
+        </member>
+        <member name="F:xiApi.NET.COUNTER_SELECTOR.CNT_SEL_TRANSPORT_TRANSFERRED_FRAMES">
+            <summary> Number of successfully transferred frames on transport layer.</summary>
+        </member>
+        <member name="T:xiApi.NET.TS_RST_MODE">
+            <summary>
+            Time stamp reset arming options
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_MODE.TS_RST_ARM_ONCE">
+            <summary> TimeStamp reset is armed once, after execution engine is disabled.</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_MODE.TS_RST_ARM_PERSIST">
+            <summary> TimeStamp reset is armed permanently if source is selected.</summary>
+        </member>
+        <member name="T:xiApi.NET.TS_RST_SOURCE">
+            <summary>
+            possible timestamp reset sources
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_OFF">
+            <summary> No source selected, timestamp reset effectively disabled.</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPI_1">
+            <summary> TimeStamp reset source selected GPI1 (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPI_2">
+            <summary> TimeStamp reset source selected GPI2 (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPI_3">
+            <summary> TimeStamp reset source selected GPI3 (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPI_4">
+            <summary> TimeStamp reset source selected GPI4 (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPI_1_INV">
+            <summary> TimeStamp reset source selected GPI1 inverted (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPI_2_INV">
+            <summary> TimeStamp reset source selected GPI2 inverted (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPI_3_INV">
+            <summary> TimeStamp reset source selected GPI3 inverted (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPI_4_INV">
+            <summary> TimeStamp reset source selected GPI4 inverted (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPO_1">
+            <summary> TimeStamp reset source selected GPO1 (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPO_2">
+            <summary> TimeStamp reset source selected GPO2 (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPO_3">
+            <summary> TimeStamp reset source selected GPO3 (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPO_4">
+            <summary> TimeStamp reset source selected GPO4 (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPO_1_INV">
+            <summary> TimeStamp reset source selected GPO1 inverted (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPO_2_INV">
+            <summary> TimeStamp reset source selected GPO2 inverted (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPO_3_INV">
+            <summary> TimeStamp reset source selected GPO3 inverted (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_GPO_4_INV">
+            <summary> TimeStamp reset source selected GPO4 inverted (after de bounce).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_TRIGGER">
+            <summary> TimeStamp reset source selected TRIGGER (signal for sensor).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_TRIGGER_INV">
+            <summary> TimeStamp reset source selected TRIGGER inverted (signal for sensor).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_SW">
+            <summary> TimeStamp reset source selected software (has immediate effect and is self cleared).</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_EXPACTIVE">
+            <summary> TimeStamp reset source selected exposure active.</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_EXPACTIVE_INV">
+            <summary> TimeStamp reset source selected exposure active inverted.</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_FVAL">
+            <summary> TimeStamp reset source selected frame valid signal from sensor.</summary>
+        </member>
+        <member name="F:xiApi.NET.TS_RST_SOURCE.TS_RST_SRC_FVAL_INV">
+            <summary> TimeStamp reset source selected frame valid signal from sensor inverted.</summary>
+        </member>
+        <member name="T:xiApi.NET.OUTPUT_DATA_PACKING_TYPE">
+            <summary>
+            Data packing(grouping) types.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.OUTPUT_DATA_PACKING_TYPE.XI_GROUPING">
+            <summary>Data grouping (10g160, 12g192, 14g224).</summary>
+        </member>
+        <member name="F:xiApi.NET.OUTPUT_DATA_PACKING_TYPE.PFNC_LSB_PACKING">
+            <summary>Data packing (10p, 12p).</summary>
+        </member>
+        <member name="T:xiApi.NET.LENS_MODE">
+            <summary>
+            Possible values for lens mode
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.LENS_MODE.OFF">
+            <summary>Status of lens control when not initialized.</summary>
+        </member>
+        <member name="F:xiApi.NET.LENS_MODE.ON">
+            <summary>Status of lens after being initialized and ready.</summary>
+        </member>
+        <member name="T:xiApi.NET.LENS_FEATURE_SELECTOR">
+            <summary>
+            Possible values for lens feature selector
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.LENS_FEATURE_SELECTOR.MOTORIZED_FOCUS_SWITCH">
+            <summary>Status of lens motorized focus switch.</summary>
+        </member>
+        <member name="F:xiApi.NET.LENS_FEATURE_SELECTOR.MOTORIZED_FOCUS_BOUNDED">
+            <summary>On read = 1 if motorized focus is on one of limits.</summary>
+        </member>
+        <member name="F:xiApi.NET.LENS_FEATURE_SELECTOR.MOTORIZED_FOCUS_CALIBRATION">
+            <summary>On read = 1 if motorized focus is calibrated. Write 1 to start calibration.</summary>
+        </member>
+        <member name="F:xiApi.NET.LENS_FEATURE_SELECTOR.IMAGE_STABILIZATION_ENABLED">
+            <summary>On read = 1 if image stabilization is enabled. Write 1 to enable image stabilization.</summary>
+        </member>
+        <member name="F:xiApi.NET.LENS_FEATURE_SELECTOR.IMAGE_STABILIZATION_SWITCH_STATUS">
+            <summary>On read = 1 if image stabilization switch is in position On.</summary>
+        </member>
+        <member name="F:xiApi.NET.LENS_FEATURE_SELECTOR.IMAGE_ZOOM_SUPPORTED">
+            <summary>On read = 1 if lens supports zoom = are not prime.</summary>
+        </member>
+        <member name="T:xiApi.NET.SENSOR_FEATURE_SELECTOR">
+            <summary>
+            Possible values for sensor feature selector
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.SENSOR_FEATURE_SELECTOR.SENSOR_FEATURE_ZEROROT_ENABLE">
+            <summary>Zero ROT enable for ONSEMI PYTHON family.</summary>
+        </member>
+        <member name="T:xiApi.NET.DEBUG_LEVEL">
+            <summary>
+            Debug level enumerator.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.DEBUG_LEVEL.TRACE">
+            <summary> Information level.</summary>
+        </member>
+        <member name="F:xiApi.NET.DEBUG_LEVEL.WARNING">
+            <summary> Warning level.</summary>
+        </member>
+        <member name="F:xiApi.NET.DEBUG_LEVEL.ERROR">
+            <summary> Error level.</summary>
+        </member>
+        <member name="F:xiApi.NET.DEBUG_LEVEL.FATAL">
+            <summary> Fatal error level.</summary>
+        </member>
+        <member name="T:xiApi.NET.CMS_MODE">
+            <summary>
+            CMS functionality options
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.CMS_MODE.DIS">
+            <summary> CMS disable.</summary>
+        </member>
+        <member name="F:xiApi.NET.CMS_MODE.EN">
+            <summary> CMS enable.</summary>
+        </member>
+        <member name="F:xiApi.NET.CMS_MODE.EN_FAST">
+            <summary> CMS enable(fast).</summary>
+        </member>
+        <member name="T:xiApi.NET.PRM">
+            <summary>
+            Parameters available for set/get operations. 
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_NAME">
+            <summary>
+            Get camera model name. Type string.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DEVICE_NAME, out string val);
+            </remarks>	
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_TYPE">
+            <summary>
+            Returns device type (1394, USB2.0, CURRERA…..). Type string.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DEVICE_TYPE, out string val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_MODEL_ID">
+            <summary>
+            Returns device model id . Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DEVICE_MODEL_ID, out int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DEBUG_LEVEL">
+            <summary>
+            Set the amount of debug prints to be reported from dll. Type int.
+            Use DEBUG_LEVEL class to set parameter.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.DEBUG_LEVEL, out string val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_INSTANCE_PATH">
+            <summary>
+            Return device system instance path.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DEVICE_INSTANCE_PATH, string val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_LOCATION_PATH">
+            <summary>
+            Represents the location of the device in the device tree.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DEVICE_LOCATION_PATH, string val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_USER_ID">
+            <summary>
+            Set/Get custom device ID string. Type string.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DEVICE_USER_ID, string val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_MANIFEST">
+            <summary>
+            Return device capability description XML. Type string.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DEVICE_USER_ID, string val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_ID">
+            <summary>
+            Get device ID string. Type string.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DEVICE_ID, string val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.AUTO_BANDWIDTH_CALCULATION">
+            <summary>
+            Enable/disable automatic bus speed adjusting on device init. Type int.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.AUTO_BANDWIDTH_CALCULATION, int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_SN">
+            <summary>
+            Returns device serial number in decimal format. Type string, int, float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DEVICE_SN, out string val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_SENS_SN">
+            <summary>
+            Returns sensor serial number in decimal format. Type string
+            </summary>
+            <remarks>
+            xiCam.GetParam(DEVICE_SENS_SN, out string val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.EXPOSURE">
+            <summary>
+            Set/Get exposure time in microseconds. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.EXPOSURE, out int val) or
+            xiCam.SetParam(PRM.EXPOSURE, int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.EXPOSURE_DIRECT_UPDATE">
+            <summary>
+            Set exposure time in microseconds with direct update flag to be applied immediately. Type int.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.EXPOSURE, int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.EXPOSURE_MAX">
+            <summary>
+            Get longest possible exposure to be set on camera. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.EXPOSURE_MAX, out int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.EXPOSURE_MIN">
+            <summary>
+            Get shortest possible exposure to be set on camera. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.EXPOSURE_MIN, out int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.EXPOSURE_BURST_COUNT">
+            <summary>
+            Set/Get the number of times of exposure in one frame. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.EXPOSURE_BURST_COUNT, out int val) or
+            xiCam.SetParam(PRM.EXPOSURE_BURST_COUNT, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GAIN_SELECTOR">
+            <summary>
+            Select gain type to control with GAIN. Use class GAIN_SELECTOR_TYPE to set value. Type int.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.GAIN_SELECTOR, out int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.GAIN">
+            <example></example>
+            <summary>
+            Set/Get camera gain in dB. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GAIN, out float val) or
+            xiCam.SetParam(PRM.GAIN, float val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GAIN_DIRECT_UPDATE">
+            <example></example>
+            <summary>
+            Set camera gain in dB with direct update flag to be applied immediately. Type float.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.GAIN, float val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GAIN_MAX">
+            <example></example>
+            <summary>
+            Get highest possible camera gain in dB. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GAIN_MAX, out float val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GAIN_MIN">
+            <summary>
+            Get lowest possible camera gain in dB. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GAIN_MIN, out float val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DOWNSAMPLING">
+            <summary>
+            Set/Get image resolution by binning or skipping. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DOWNSAMPLING, out int val) or
+            xiCam.SetParam(PRM.DOWNSAMPLING, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.DOWNSAMPLING_MAX">
+            <summary>
+            Get highest value for binning or skipping. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DOWNSAMPLING_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.DOWNSAMPLING_MIN">
+            <summary>
+            Get lowest value for binning or skipping. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DOWNSAMPLING_MIN, out int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.DOWNSAMPLING_TYPE">
+            <summary>
+            Change image downsampling type. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DOWNSAMPLING_TYPE, out int val)
+            xiCam.SetParam(PRM.DOWNSAMPLING_TYPE, out int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.BINNING_SELECTOR">
+            <summary>
+            Select Binning engine to configure. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.BINNING_SELECTOR, out int val)
+            xiCam.SetParam(PRM.BINNING_SELECTOR, in int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.BINNING_VERTICAL">
+            <summary>
+            Defines number of vertical photo-sensitive cells to combine. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.BINNING_VERTICAL, out int val)
+            xiCam.SetParam(PRM.BINNING_VERTICAL, in int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.BINNING_HORIZONTAL">
+            <summary>
+            Defines number of horizontal photo-sensitive cells to combine. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.BINNING_HORIZONTAL, out int val)
+            xiCam.SetParam(PRM.BINNING_HORIZONTAL, in int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.BINNING_PATTERN">
+            <summary>
+            Defines binning pattern. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.BINNING_PATTERN, out int val)
+            xiCam.SetParam(PRM.BINNING_PATTERN, in int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.DECIMATION_SELECTOR">
+            <summary>
+            Select Decimation engine to configure. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DECIMATION_SELECTOR, out int val)
+            xiCam.SetParam(PRM.DECIMATION_SELECTOR, in int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.DECIMATION_VERTICAL">
+            <summary>
+            Reduces the vertical resolution of the image by the specified decimation factor. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DECIMATION_VERTICAL, out int val)
+            xiCam.SetParam(PRM.DECIMATION_VERTICAL, in int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.DECIMATION_HORIZONTAL">
+            <summary>
+            Reduces the horizontal resolution of the image by the specified decimation factor. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DECIMATION_HORIZONTAL, out int val)
+            xiCam.SetParam(PRM.DECIMATION_HORIZONTAL, in int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.DECIMATION_PATTERN">
+            <summary>
+            Defines decimation pattern. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.DECIMATION_PATTERN, out int val)
+            xiCam.SetParam(PRM.DECIMATION_PATTERN, in int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.TEST_PATTERN_GENERATOR_SELECTOR">
+            <summary>
+            Selects which test pattern generator is controlled by the TestPattern feature. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.TEST_PATTERN_GENERATOR_SELECTOR, out int val)
+            xiCam.SetParam(PRM.TEST_PATTERN_GENERATOR_SELECTOR, in int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.TEST_PATTERN">
+            <summary>
+            Selects which test pattern type is generated by the selected generator. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.TEST_PATTERN, out int val)
+            xiCam.SetParam(PRM.TEST_PATTERN, in int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.SHUTTER_TYPE">
+            <summary>
+            Change sensor shutter type(CMOS sensor). Use class SHUTTER_TYPE to set value. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.SHUTTER_TYPE, out int val)
+            xiCam.SetParam(PRM.SHUTTER_TYPE, out int val)
+            </remarks>				
+        </member>
+        <member name="F:xiApi.NET.PRM.IMAGE_DATA_FORMAT">
+             <summary>
+             Set/Get output image data format. Use class IMG_FORMAT to set value. Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.IMAGE_DATA_FORMAT, out int val) or
+             xiCam.SetParam(PRM.IMAGE_DATA_FORMAT, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.IMAGE_DATA_FORMAT_RGB32_ALPHA">
+             <summary>
+             Set/Get the alpha channel of RGB32 output image format. Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.IMAGE_DATA_FORMAT_RGB32_ALPHA, out int val) or
+             xiCam.SetParam(PRM.IMAGE_DATA_FORMAT_RGB32_ALPHA, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.IMAGE_PAYLOAD_SIZE">
+             <summary>
+             Current format of pixels on transport layer. Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.TRANSPORT_PIXEL_FORMAT, out int val) or
+             xiCam.SetParam(PRM.TRANSPORT_PIXEL_FORMAT, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.TRANSPORT_PIXEL_FORMAT">
+             <summary>
+             Buffer size in bytes sufficient for output image returned GetImage. Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.IMAGE_PAYLOAD_SIZE, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.SENSOR_TAPS">
+             <summary>
+             Set/Get number of sensor taps. Supported only by MD camera family. Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.SENSOR_TAPS, out int val) or
+             xiCam.SetParam(PRM.SENSOR_TAPS, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.SENSOR_CLOCK_FREQ_HZ">
+             <summary>
+             Set/Get sensor clock frequency in Hz.  Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.SENSOR_CLOCK_FREQ_HZ, out int val) or
+             xiCam.SetParam(PRM.SENSOR_CLOCK_FREQ_HZ, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.SENSOR_CLOCK_FREQ_INDEX">
+             <summary>
+             Sensor clock frequency index (available for some sensors). Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.SENSOR_CLOCK_FREQ_INDEX, out int val) or
+             xiCam.SetParam(PRM.SENSOR_CLOCK_FREQ_INDEX, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.SENSOR_OUTPUT_CHANNEL_COUNT">
+             <summary>
+             Sensor output data channel count.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.SENSOR_OUTPUT_CHANNEL_COUNT, out int val) or
+             xiCam.SetParam(PRM.SENSOR_OUTPUT_CHANNEL_COUNT, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.SENSOR_DATA_BIT_DEPTH">
+             <summary>
+             Set/Get sensor output data bit depth. Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.SENSOR_DATA_BIT_DEPTH, out int val) or
+             xiCam.SetParam(PRM.SENSOR_DATA_BIT_DEPTH, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.OUTPUT_DATA_BIT_DEPTH">
+             <summary>
+             Set/Get device output data bit depth. Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.OUTPUT_DATA_BIT_DEPTH, out int val) or
+             xiCam.SetParam(PRM.OUTPUT_DATA_BIT_DEPTH, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.IMAGE_DATA_BIT_DEPTH">
+             <summary>
+             Set/Get bitdepth of data returned by function xiGetImage. Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.IMAGE_DATA_BIT_DEPTH, out int val) or
+             xiCam.SetParam(PRM.IMAGE_DATA_BIT_DEPTH, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.OUTPUT_DATA_PACKING">
+             <summary>
+             Set/Get Device output data packing (or grouping) enabled. Packing could be enabled if output_data_bit_depth > 8 and packing is available. Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.OUTPUT_DATA_PACKING, out int val) or
+             xiCam.SetParam(PRM.OUTPUT_DATA_PACKING, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.OUTPUT_DATA_PACKING_TYPE">
+             <summary>
+             Set/Get Device output data packing (or grouping) type. Type int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.OUTPUT_DATA_PACKING_TYPE, out int val) or
+             xiCam.SetParam(PRM.OUTPUT_DATA_PACKING_TYPE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.IMAGE_IS_COLOR">
+             <summary>
+             Returns 1 for color cameras. By default -. Type Int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.IMAGE_IS_COLOR, out int val) or
+             xiCam.SetParam(PRM.IMAGE_IS_COLOR, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.COLOR_FILTER_ARRAY">
+             <summary>
+             Returns color filter array type of RAW data. By default -. Type Int.
+             </summary>
+             <remarks>
+             xiCam.GetParam(PRM.COLOR_FILTER_ARRAY, out int val) or
+             xiCam.SetParam(PRM.COLOR_FILTER_ARRAY, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.FRAMERATE">
+            <summary>
+            Get frames per second. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.FRAMERATE, out float val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.FRAMERATE_MAX">
+            <summary>
+            Get highest possible framerate for current camera settings. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.FRAMERATE_MAX, out float val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.FRAMERATE_MIN">
+            <summary>
+            Get lowest framerate for current camera settings. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.FRAMERATE_MIN, out float val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_TIMING_MODE">
+            <summary>
+            Type of sensor frames timing. Use ACQ_TIMING_MODE class to set/get values. Type int.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.ACQ_TIMING_MODE, float val)
+            xiCam.GetParam(PRM.ACQ_TIMING_MODE, out float val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.COUNTER_SELECTOR">
+            <summary>
+            Select frames counter. Type int.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.COUNTER_SELECTOR, out int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.COUNTER_VALUE">
+            <summary>
+            Get frames counter status. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.COUNTER_VALUE, out int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.AVAILABLE_BANDWIDTH">
+            <summary>
+            Calculate and return available interface bandwidth(int Megabits). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.AVAILABLE_BANDWIDTH, int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.AVAILABLE_BANDWIDTH_MAX">
+            <summary>
+            Get highest possible bandwidth for current camera settings. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.AVAILABLE_BANDWIDTH_MAX, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.AVAILABLE_BANDWIDTH_MIN">
+            <summary>
+            Get lowest bandwidth for current camera settings. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.AVAILABLE_BANDWIDTH_MIN, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LIMIT_BANDWIDTH">
+            <summary>
+            Set/get bandwidth(datarate)(in Megabits)
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.AVAILABLE_BANDWIDTH, int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.LIMIT_BANDWIDTH_MAX">
+            <summary>
+            Get highest possible bandwidth for current camera settings. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.AVAILABLE_BANDWIDTH_MAX, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LIMIT_BANDWIDTH_MIN">
+            <summary>
+            Get lowest bandwidth for current camera settings. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.AVAILABLE_BANDWIDTH_MIN, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.BUFFER_POLICY">
+            <summary>
+            Data move policy
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.BUFFER_POLICY, out float val)
+            xiCam.SetParam(PRM.BUFFER_POLICY, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.OFFSET_X">
+            <summary>
+            Set/Get horizontal offset from the origin to the area of interest (in pixels). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.OFFSET_X, out int val) or
+            xiCam.SetParam(PRM.OFFSET_X, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.OFFSET_X_MAX">
+            <summary>
+            Get maximum horizontal offset from the origin to the area of interest (in pixels). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.OFFSET_X_MAX, out int val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.OFFSET_X_MIN">
+            <summary>
+            Get minimum horizontal offset from the origin to the area of interest (in pixels). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.OFFSET_X_MIN, out int val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.OFFSET_Y">
+            <summary>
+            Set/Get vertical offset from the origin to the area of interest (in pixels). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.OFFSET_Y, out int val) or
+            xiCam.SetParam(PRM.OFFSET_Y, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.OFFSET_Y_MAX">
+            <summary>
+            Get maximum vertical offset from the origin to the area of interest (in pixels). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.OFFSET_Y_MAX, out int val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.OFFSET_Y_MIN">
+            <summary>
+            Get minimal vertical offset from the origin to the area of interest (in pixels). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.OFFSET_Y_MIN, out int val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.WIDTH">
+            <summary>
+            Set/Get width of the image provided by the camera (in pixels). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.WIDTH, out int val) or
+            xiCam.SetParam(PRM.WIDTH, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.WIDTH_MAX">
+            <summary>
+            Get maximal image width provided by the camera (in pixels). Type int. 
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.WIDTH_MAX, out int val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.WIDTH_MIN">
+            <summary>
+            Get minimal image width provided by the camera (in pixels). Type int. 
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.WIDTH_MIN, out int val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.HEIGHT">
+            <summary>
+            Set/Get height of the image provided by the camera (in pixels). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.HEIGHT, out int val) or
+            xiCam.SetParam(PRM.HEIGHT, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.HEIGHT_MAX">
+            <summary>
+            Get maximal image height provided by the camera (in pixels). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.HEIGHT_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.HEIGHT_MIN">
+            <summary>
+            Get minimal image height provided by the camera (in pixels). Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.HEIGHT_MIN, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.REGION_SELECTOR">
+            <summary>
+            Selects Region in Multiple ROI which parameters are set by width, height, ... ,region mode. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.REGION_SELECTOR, out int val) or
+            xiCam.SetParam(PRM.REGION_SELECTOR, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.REGION_SELECTOR_MAX">
+            <summary>
+            Get maximal region selector provided by the camera. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.REGION_SELECTOR_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.REGION_SELECTOR_MIN">
+            <summary>
+            Get minimal region selector provided by the camera. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.REGION_SELECTOR_MIN, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.REGION_MODE">
+            <summary>
+            Activates/deactivates Region selected by Region Selector. Type int. 0-inactive, 1-active
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.REGION_MODE, out int val) or
+            xiCam.SetParam(PRM.REGION_MODE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.REGION_MODE_MAX">
+            <summary>
+            Get maximal mode (is 1) active region. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.REGION_MODE_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.REGION_MODE_MIN">
+            <summary>
+            Get minimal mode (is 0) inactive region. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.REGION_MODE_MIN, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LUT_EN">
+            <summary>
+            Activates look up table. Currently available only for Currera-R cameras and MQ cameras.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LUT_EN, out int val) or
+            xiCam.SetParam(PRM.LUT_EN, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LUT_INDEX">
+            <summary>
+            Controls the index (offset) of the coefficient to access in the LUT. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LUT_INDEX, out int val) or
+            xiCam.SetParam(PRM.LUT_INDEX, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LUT_INDEX_MAX">
+            <summary>
+            Get highest LUT index (offset) of the coefficient to access in the LUT. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LUT_INDEX_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LUT_INDEX_MIN">
+            <summary>
+            Get lowest LUT index (offset) of the coefficient to access in the LUT. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LUT_INDEX_MIN, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LUT_VALUE">
+            <summary>
+            Set/Get value at entry LUTIndex of the LUT. Type int.     
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LUT_VALUE, out int val) or
+            xiCam.SetParam(PRM.LUT_VALUE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LUT_VALUE_MAX">
+            <summary>
+            Get highest value to be set in LUT. Type int.      
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LUT_VALUE_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LUT_VALUE_MIN">
+            <summary>
+            Get lowest value to be set in LUT. Type int.      
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LUT_VALUE_MIN, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.TRG_SOURCE">
+            <summary>
+            Set/Get source of trigger. Use TRG_SOURCE class to set parameter. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.TRG_SOURCE, out int val) or
+            xiCam.SetParam(PRM.TRG_SOURCE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.TRG_SELECTOR">
+            <summary>
+            Set/Get type of trigger. Use TRG_SELECTOR class to set parameter. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.TRG_SELECTOR, out int val) or
+            xiCam.SetParam(PRM.TRG_SELECTOR, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.TRG_SOFTWARE">
+            <summary>
+            Set an internal software trigger. PRM.TRG_SOURCE must be set to TRG_SOFTWARE. Type int.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.TRG_SOFTWARE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.TRG_DELAY">
+            <summary>
+            Specifies the delay in microseconds (us) to apply after the trigger reception before activating it. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.TRG_DELAY, out int val)
+            xiCam.SetParam(PRM.TRG_DELAY, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GPI_SELECTOR">
+            <summary>
+            Select camera GPI port. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GPI_SELECTOR, out int val) or
+            xiCam.SetParam(PRM.GPI_SELECTOR, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GPI_SELECTOR_MAX">
+            <summary>
+            Get highest GPI port number on camera. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GPI_SELECTOR_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GPI_SELECTOR_MIN">
+            <summary>
+            Get lowest GPI port number on camera. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GPI_SELECTOR_MIN, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GPI_LEVEL">
+            <summary>
+            Get current GPI level. By default -. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GPI_LEVEL, out int val) or
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GPI_MODE">
+            <summary>
+            Set/Get GPI functionality. Select port by using GPI_SELECTOR parameter. 
+            Use GPI_MODE class to set mode. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GPI_MODE, out int val) or
+            xiCam.SetParam(PRM.GPI_MODE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GPO_SELECTOR">
+            <summary>
+            Select camera GPO port. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GPO_SELECTOR, out int val) or
+            xiCam.SetParam(PRM.GPO_SELECTOR, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GPO_SELECTOR_MAX">
+            <summary>
+            Get highest GPO port number on camera. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GPO_SELECTOR_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GPO_SELECTOR_MIN">
+            <summary>
+            Get lowest GPI port number on camera. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GPO_SELECTOR_MIN, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GPO_MODE">
+            <summary>
+            Set/Get GPO functionality. Select port by using GPO_SELECTOR parameter.
+            Use GPO_MODE class to set mode. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GPO_MODE, out int val) or
+            xiCam.SetParam(PRM.GPO_MODE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LED_SELECTOR">
+            <summary>
+            Selects camera LED to be used. Currently supported only for Currera-R cameras. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LED_SELECTOR, out int val) or
+            xiCam.SetParam(PRM.LED_SELECTOR, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LED_SELECTOR_MAX">
+            <summary>
+            Get highest LED number on camera. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LED_SELECTOR_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LED_SELECTOR_MIN">
+            <summary>
+            Get lowest LED number on camera. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LED_SELECTOR_MIN, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LED_MODE">
+            <summary>
+            Set/Get LED functionality. Select port by using LED_SELECTOR parameter. 
+            Use LED_MODE class to set parameter. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.LED_MODE, out int val) or
+            xiCam.SetParam(PRM.LED_MODE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.TS_RST_MODE">
+            <summary>
+            Defines how time stamp reset engine will be armed
+            Use TS_RST_MODE class to set parameter. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.TS_RST_MODE, out int val) or
+            xiCam.SetParam(PRM.TS_RST_MODE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.TS_RST_SOURCE">
+            <summary>
+            Defines which source will be used for timestamp reset. Writing this parameter will trigger settings of engine (arming)
+            Use TS_RST_SOURCE class to set parameter. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.TS_RST_SOURCE, out int val) or
+            xiCam.SetParam(PRM.TS_RST_SOURCE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_FRAME_BURST_COUNT">
+            <summary>
+            Sets number of frames acquired by burst. This burst is used only if trigger is set to FrameBurstStart. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.ACQ_FRAME_BURST_COUNT, out int val) or
+            xiCam.SetParam(PRM.ACQ_FRAME_BURST_COUNT, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.IS_DEVICE_EXIST">
+            <summary>
+            Returns 1 if camera connected and works properly.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.IS_DEVICE_EXIST, out int val) or
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_BUFFER_SIZE">
+            <summary>
+            Acquisition buffer size in bytes.
+            By default 53248000. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.ACQ_BUFFER_SIZE, out int val) or
+            xiCam.SetParam(PRM.ACQ_BUFFER_SIZE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_BUFFER_SIZE_UNIT">
+            <summary>
+            Acquisition buffer size unit in bytes.
+            By default 1. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.ACQ_BUFFER_SIZE_UNIT, out int val) or
+            xiCam.SetParam(PRM.ACQ_BUFFER_SIZE_UNIT, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_TRANSPORT_BUFFER_SIZE">
+            <summary>
+            Acquisition transport buffer size in bytes.
+            By default 1048576. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.ACQ_TRANSPORT_BUFFER_SIZE, out int val) or
+            xiCam.SetParam(PRM.ACQ_TRANSPORT_BUFFER_SIZE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_TRANSPORT_BUFFER_SIZE_MAX">
+            <summary>
+            Get highest value for acquisition transport buffer size in bytes. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.ACQ_TRANSPORT_BUFFER_SIZE_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_TRANSPORT_BUFFER_SIZE_MIN">
+            <summary>
+            Get lowest value for acquisition transport buffer size in bytes. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.ACQ_TRANSPORT_BUFFER_SIZE_MIN, out int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_TRANSPORT_PACKET_SIZE">
+            <summary>
+            Acquisition transport packet size in bytes.
+            By default defined by interface . Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.ACQ_TRANSPORT_PACKET_SIZE, out int val) or
+            xiCam.SetParam(PRM.ACQ_TRANSPORT_PACKET_SIZE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.BUFFERS_QUEUE_SIZE">
+            <summary>
+            Image queue count
+            By default 4. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.BUFFERS_QUEUE_SIZE, out int val) or
+            xiCam.SetParam(PRM.BUFFERS_QUEUE_SIZE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.BUFFERS_QUEUE_SIZE_MAX">
+            <summary>
+            Get highest value for image queue count. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.BUFFERS_QUEUE_SIZE_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.BUFFERS_QUEUE_SIZE_MIN">
+            <summary>
+            Get lowest value for image queue count. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.BUFFERS_QUEUE_SIZE_MIN, out int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_TRANSPORT_BUFFER_COMMIT">
+            <summary>
+            Number of buffers to commit to low level
+            By default -. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.ACQ_TRANSPORT_BUFFER_COMMIT, out int val) or
+            xiCam.SetParam(PRM.ACQ_TRANSPORT_BUFFER_COMMIT, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_TRANSPORT_BUFFER_COMMIT_MAX">
+            <summary>
+            Get highest value of buffers to commit to low level count. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.ACQ_TRANSPORT_BUFFER_COMMIT_MAX, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.ACQ_TRANSPORT_BUFFER_COMMIT_MIN">
+            <summary>
+            Get lowest value of buffers to commit to low level count. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.ACQ_TRANSPORT_BUFFER_COMMIT_MIN, out int val)
+            </remarks>												
+        </member>
+        <member name="F:xiApi.NET.PRM.RECENT_FRAME">
+            <summary>
+            GetImage returns most recent frame.
+            By default 0. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.RECENT_FRAME, out int val) or
+            xiCam.SetParam(PRM.RECENT_FRAME, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.DEVICE_RESET">
+            <summary>
+            Reset device command.
+            By default 0. Type int.
+            </summary>
+            <remarks>        
+            xiCam.SetParam(PRM.DEVICE_RESET, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CMS">
+            <summary>
+            Initialize/uninitialize CMS, perceptual inetent. By default CMS_MODE.DIS. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CMS, out int val) or
+            xiCam.SetParam(PRM.CMS, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.APPLY_CMS">
+            <summary>
+            Apply CMS profiles(input.icc and output.icm), perceptual inetent. By default 0. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.APPLY_CMS, out int val) or
+            xiCam.SetParam(PRM.APPLY_CMS, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.INPUT_CMS_PROFILE">
+            <summary>
+            Apply input CMS profile. Type string.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.INPUT_CMS_PROFILE, string val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.OUTPUT_CMS_PROFILE">
+            <summary>
+            Apply output CMS profile. Type string.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.OUTPUT_CMS_PROFILE, string val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.WB_KR">
+            <summary>
+            White balance red coefficient. By default 1. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.WB_KR, out float val) or
+            xiCam.SetParam(PRM.WB_KR, float val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.WB_KG">
+            <summary>
+            White balance green coefficient. By default 1. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.WB_KG, out float val) or
+            xiCam.SetParam(PRM.WB_KG, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.WB_KB">
+            <summary>
+            White balance blue coefficient. By default 1. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.WB_KB, out float val) or
+            xiCam.SetParam(PRM.WB_KB, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.MANUAL_WB">
+             <summary>
+            Calculates White Balance. By default -. Type int.
+             </summary>
+             <remarks>
+             xiCam.SetParam(PRM.MANUAL_WB, 0)  
+             </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.AUTO_WB">
+            <summary>
+            Automatic white balance. By default 0. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.AUTO_WB, out int val)  
+            xiCam.SetParam(PRM.AUTO_WB, int val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GAMMAY">
+            <summary>
+            Luminosity gamma. By default 1.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GAMMAY, out float val) or
+            xiCam.SetParam(PRM.GAMMAY, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.GAMMAC">
+            <summary>
+            Chromaticity gamma. By default 0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.GAMMAC, out float val) or
+            xiCam.SetParam(PRM.GAMMAC, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.SHARPNESS">
+            <summary>
+            Sharpness strenght. By default 0. Type float. 
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.SHARPNESS, out float val) or
+            xiCam.SetParam(PRM.SHARPNESS, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_00">
+            <summary>
+            Color Correction Matrix element [0][0]. By default 1.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_00, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_00, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_01">
+            <summary>
+            Color Correction Matrix element [0][1]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_01, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_01, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_02">
+            <summary>
+            Color Correction Matrix element [0][2]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_02, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_02, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_03">
+            <summary>
+            Color Correction Matrix element [0][3]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_03, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_03, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_10">
+            <summary>
+            Color Correction Matrix element [1][0]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_10, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_10, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_11">
+            <summary>
+            Color Correction Matrix element [1][1]. By default 1.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_11, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_11, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_12">
+            <summary>
+            Color Correction Matrix element [1][2]. By default 0.0. Type float. 
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_12, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_12, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_13">
+            <summary>
+            Color Correction Matrix element [1][3]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_13, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_13, float val)  
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_20">
+            <summary>
+            Color Correction Matrix element [2][0]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_20, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_20, float val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_21">
+            <summary>
+            Color Correction Matrix element [2][1]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_21, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_21, float val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_22">
+            <summary>
+            Color Correction Matrix element [2][2]. By default 1.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_22, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_22, float val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_23">
+            <summary>
+            Color Correction Matrix element [2][3]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_23, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_23, float val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_30">
+            <summary>
+            Color Correction Matrix element [3][0]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_30, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_30, float val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_31">
+            <summary>
+            Color Correction Matrix element [3][1]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_31, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_31, float val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_32">
+            <summary>
+            Color Correction Matrix element [3][2]. By default 1.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_32, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_32, float val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CC_MATRIX_33">
+            <summary>
+            Color Correction Matrix element [3][3]. By default 0.0. Type float.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.CC_MATRIX_33, out float val) or
+            xiCam.SetParam(PRM.CC_MATRIX_33, float val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.DEFAULT_CC_MATRIX">
+            <summary> 
+            Default Color Correction Matrix.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.DEFAULT_CC_MATRIX, int val) 
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.AEAG">
+            <summary> 
+            Start automatic exposure/gain. By default 0(disabled). Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.AEAG, int val) 
+            xiCam.GetParam(PRM.AEAG, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.EXP_PRIORITY">
+            <summary> 
+            Exposure priority (0.5 - exposure 50%, gain 50%). By default 0.8. Type float.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.EXP_PRIORITY, float val)
+            xiCam.GetParam(PRM.EXP_PRIORITY, out float val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.AE_MAX_LIMIT">
+            <summary> 
+            Maximum limit of exposure in AEAG procedure. By default 1000000(1s). Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.AE_MAX_LIMIT, int val)
+            xiCam.GetParam(PRM.AE_MAX_LIMIT, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.AG_MAX_LIMIT">
+            <summary> 
+            Maximum limit of gain in AEAG procedure. By default defined by sensor. Type float.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.AG_MAX_LIMIT, float val)
+            xiCam.GetParam(PRM.AG_MAX_LIMIT, out float val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.AEAG_LEVEL">
+            <summary> 
+            Average intensity of output signal AEAG should achieve(in ). By default 40(). Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.AEAG_LEVEL, int val);
+            xiCam.GetParam(PRM.AEAG_LEVEL, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.AEAG_ROI_OFFSET_X">
+            <summary> 
+            Automatic exposure/gain ROI offset X. Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.AEAG_ROI_OFFSET_X, int val);
+            xiCam.GetParam(PRM.AEAG_ROI_OFFSET_X, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.AEAG_ROI_OFFSET_Y">
+            <summary> 
+            Automatic exposure/gain ROI offset Y. Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.AEAG_ROI_OFFSET_Y, int val);
+            xiCam.GetParam(PRM.AEAG_ROI_OFFSET_Y, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.AEAG_ROI_WIDTH">
+            <summary> 
+            Automatic exposure/gain ROI Width. Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.AEAG_ROI_WIDTH, int val);
+            xiCam.GetParam(PRM.AEAG_ROI_WIDTH, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.AEAG_ROI_HEIGHT">
+            <summary> 
+            Automatic exposure/gain ROI Height. Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.AEAG_ROI_HEIGHT, int val);
+            xiCam.GetParam(PRM.AEAG_ROI_HEIGHT, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.BPC">
+            <summary> 
+            Enable correction of bad pixels. By default 0(disabled). Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.BPC, int val);
+            xiCam.GetParam(PRM.BPC, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.COLUMN_FPN_CORRECTION">
+            <summary> 
+            Enable correction of column fpn. By default 0(enabled). Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.COLUMN_FPN_CORRECTION, int val);
+            xiCam.GetParam(PRM.COLUMN_FPN_CORRECTION, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.ROW_FPN_CORRECTION">
+            <summary> 
+            Enable correction of row fpn. By default 0(enabled). Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.ROW_FPN_CORRECTION, int val);
+            xiCam.GetParam(PRM.ROW_FPN_CORRECTION, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.DEBOUNCE_EN">
+            <summary> 
+            Enable/Disable debounce to selected GPI. By default 0(disabled). Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.DEBOUNCE_EN, int val);
+            xiCam.GetParam(PRM.DEBOUNCE_EN, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.DEBOUNCE_T0">
+            <summary> 
+            Debounce time (x * 10us). Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.DEBOUNCE_T0, int val);
+            xiCam.GetParam(PRM.DEBOUNCE_T0, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.DEBOUNCE_T1">
+            <summary> 
+            Debounce time (x * 10us). Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.DEBOUNCE_T1, int val);
+            xiCam.GetParam(PRM.DEBOUNCE_T1, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.DEBOUNCE_POL">
+            <summary> 
+            Debounce polarity (pol = 1 t0 - falling edge, t1 - rising edge). By default 0(disabled). Type integer.
+            </summary>
+            <remarks>
+            xiCam.SetParam(PRM.DEBOUNCE_POL, int val);
+            xiCam.GetParam(PRM.DEBOUNCE_POL, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.IS_COOLED">
+            <summary>
+             Returns 1 for cameras that support cooling.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.IS_COOLED, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.COOLING">
+            <summary>
+             Start camera cooling. By default 0. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.COOLING, int val);
+             xiCam.GetParam(PRM.COOLING, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.TARGET_TEMP">
+            <summary>
+             Set sensor target temperature for cooling. By default 20. Type float.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.TARGET_TEMP, float val);
+             xiCam.GetParam(PRM.TARGET_TEMP, out float val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.CHIP_TEMP">
+            <summary>
+             Camera chip temperature. By default -. Type float.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.CHIP_TEMP, float val);
+             xiCam.GetParam(PRM.CHIP_TEMP, out float val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.HOUS_TEMP">
+            <summary>
+             Camera housing tepmerature. By default -. Type float.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.HOUS_TEMP, float val);
+             xiCam.GetParam(PRM.HOUS_TEMP, out float val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.HOUS_BACK_SIDE_TEMP">
+            <summary>
+             Camera housing back side tepmerature. By default -. Type float.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.HOUS_BACK_SIDE_TEMP, float val);
+             xiCam.GetParam(PRM.HOUS_BACK_SIDE_TEMP, out float val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.SENSOR_BOARD_TEMP">
+            <summary>
+             Camera sensor board tepmerature. By default -. Type float.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.SENSOR_BOARD_TEMP, float val);
+             xiCam.GetParam(PRM.SENSOR_BOARD_TEMP, out float val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.SENSOR_MODE">
+            <summary>
+             Current sensor mode. Allows to select sensor mode by one integer. Setting of this parameter affects: image dimensions and downsampling.. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.SENSOR_MODE, int val);
+             xiCam.GetParam(PRM.SENSOR_MODE, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.HDR">
+            <summary>
+             Enable High Dynamic Range feature. By default 0(disabled). Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.HDR, int val);
+             xiCam.GetParam(PRM.HDR, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.HDR_KNEEPOINT_COUNT">
+            <summary>
+             Number of kneepoints in  PWLR. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.HDR_KNEEPOINT_COUNT, int val);
+             xiCam.GetParam(PRM.HDR_KNEEPOINT_COUNT, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.HDR_T1">
+            <summary>
+             Enable High Dynamic Range feature. By default 0(disabled). Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.HDR_T1, int val);
+             xiCam.GetParam(PRM.HDR_T1, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.HDR_T2">
+            <summary>
+             Exposure time of first slope(in microseconds). By default 40000us. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.HDR_T2, int val);
+             xiCam.GetParam(PRM.HDR_T2, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.KNEEPOINT1">
+            <summary>
+             First kneepoint (% of sensor saturation) By default 60%. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.HDR_T3, int val);
+             xiCam.GetParam(PRM.HDR_T3, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.KNEEPOINT2">
+            <summary>
+             Second kneepoint (% of sensor saturation) By default 40%. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.KNEEPOINT2, int val);
+             xiCam.GetParam(PRM.KNEEPOINT2, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.IMAGE_BLACK_LEVEL">
+            <summary>
+             black level of last image. Can be used for Offline processing . Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.IMAGE_BLACK_LEVEL, int val);
+             xiCam.GetParam(PRM.IMAGE_BLACK_LEVEL, out int val);
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.API_VERSION">
+            <summary>
+             Return the version of current API
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.API_VERSION, out string val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.DRV_VERSION">
+            <summary>
+             Return version of current device driver. 
+             By default -. Type string.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.DRV_VERSION, out string val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.MCU1_VERSION">
+            <summary>
+             Returns version of MCU firmware.
+             By default -. Type string.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.MCU1_VERSION, out string val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.MCU2_VERSION">
+            <summary>
+             Returns version of MCU firmware.
+             By default -. Type string.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.MCU2_VERSION, out string val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.FPGA1_VERSION">
+            <summary>
+             Returns version of FPGA firmware.
+             By default -. Type string.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.FPGA1_VERSION, out string val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.HW_REVISION">
+            <summary>
+             Returns hardware revision number of camera.
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.HW_REVISION, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.READ_FILE_FFS">
+            <summary>
+             Read file from camera flash filesystem. 
+             By default -. Type string.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.READ_FILE_FFS, out string val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.WRITE_FILE_FFS">
+            <summary>
+             Write file to camera flash filesystem. 
+             By default -. Type string.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.WRITE_FILE_FFS, out string val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.FFS_FILE_NAME">
+            <summary>
+             Set name of file to be written/read from camera FFS. 
+             By default -. Type string.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.FFS_FILE_NAME, out string val)
+             xiCam.SetParam(PRM.FFS_FILE_NAME, out string val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.FFS_FILE_ID">
+            <summary>
+             File number(id) in FFS. 
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.FFS_FILE_ID, in int val)
+             xiCam.GetParam(PRM.FFS_FILE_ID, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.FFS_FILE_SIZE">
+            <summary>
+             Size of file in FFS. 
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.FFS_FILE_SIZE, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.FREE_FFS_SIZE">
+            <summary>
+             Size of free camera FFS. 
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.FREE_FFS_SIZE, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.USED_FFS_SIZE">
+            <summary>
+             Size of used camera FFS. 
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.USED_FFS_SIZE, out int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.FFS_ACCESS_KEY">
+            <summary>
+             Setting of key enables file operations on some cameras.
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.FFS_ACCESS_KEY, out int key)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LENS_MODE">
+            <summary>
+             Status of lens control interface. This shall be set to XI_ON before any Lens operations.
+             Use LENS_MODE class to set parameter.
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.LENS_MODE, int mode)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LENS_APERTURE_VALUE">
+            <summary>
+             Current lens aperture value in stops. Examples: 2.8, 4, 5.6, 8, 11
+             By default -. Type float.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.LENS_APERTURE_VALUE, float aperture_value)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LENS_FOCUS_MOVEMENT_VALUE">
+            <summary>
+             Lens current focus movement value to be used by LENS_FOCUS_MOVE in motor steps.
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.LENS_FOCUS_MOVEMENT_VALUE, int motor_steps_count)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LENS_FOCUS_MOVE">
+            <summary>
+             Moves lens focus motor by steps set in LENS_FOCUS_MOVEMENT_VALUE.
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.LENS_FOCUS_MOVE, int any_value)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LENS_FOCUS_DISTANCE">
+            <summary>
+             Lens focus distance in cm.
+             By default -. Type float.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.LENS_FOCUS_DISTANCE, out float distance_cm)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LENS_FOCAL_LENGTH">
+            <summary>
+             Lens focal distance in mm.
+             By default -. Type float.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.LENS_FOCAL_LENGTH, out float focal_distance_cm)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LENS_FEATURE_SELECTOR">
+            <summary>
+             Selects the current feature which is accessible by LENS_FEATURE.
+             Use LENS_FEATURE_SELECTOR class to set parameter.
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.LENS_FEATURE_SELECTOR, int feature_id)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.LENS_FEATURE">
+            <summary>
+             Allows access to lens feature value currently selected by LENS_FEATURE_SELECTOR.
+             By default -. Type integer.
+            </summary>
+            <remarks>
+             xiCam.SetParam(PRM.LENS_FEATURE, int feature_value)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.SENSOR_FEATURE_SELECTOR">
+            <summary>
+            Selects the current feature which is accessible by SENSOR_FEATURE_VALUE. SENSOR_FEATURE_SELECTOR
+            Use SENSOR_FEATURE_SELECTOR class to set parameter. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.SENSOR_FEATURE_SELECTOR, out int select_id) or
+            xiCam.SetParam(PRM.SENSOR_FEATURE_SELECTOR, int select_id)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.SENSOR_FEATURE_VALUE">
+            <summary>
+            Allows access to sensor feature value currently selected by SENSOR_FEATURE_SELECTOR.
+            All ranges depends on selected feature. Type int.
+            </summary>
+            <remarks>
+            xiCam.GetParam(PRM.SENSOR_FEATURE_VALUE, out int val) or
+            xiCam.SetParam(PRM.SENSOR_FEATURE_VALUE, int val)
+            </remarks>
+        </member>
+        <member name="F:xiApi.NET.PRM.API_CONTEXT_LIST">
+            <summary>
+             List of current parameters settings context - parameters with values. Used for offline processing.
+             By default -. Type string.
+            </summary>
+            <remarks>
+             xiCam.GetParam(PRM.API_CONTEXT_LIST out string val)
+             xiCam.SetParam(PRM.API_CONTEXT_LIST, string val)
+            </remarks>
+        </member>
+        <member name="T:xiApi.NET.ImgParams">
+            <summary>
+            Provide additional information about the acquired image.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.GetDataFormat">
+            <summary>
+            Returns data format of the last acquired image.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.GetWidth">
+            <summary>
+            Returns width of the last acquired image.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.GetHeight">
+            <summary>
+            Returns height of the last acquired image.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.GetFrameNum">
+            <summary>
+            Returns number of the last acquired image.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.GetTimestamp">
+            <summary>
+            Returns time stamp in seconds with microsecond precision.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.GetDigitalInputLevel">
+            <summary>
+            Returns GPI input level.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.GetBlackLevel">
+            <summary>
+            Returns image black level (only for RAW and Mono formats).
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.GetPaddingX">
+            <summary>
+            Returns image black level (only for RAW and Mono formats).
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.GetAbsoluteOffsetX">
+            <summary>
+            Returns image black level (only for RAW and Mono formats).
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.GetAbsoluteOffsetY">
+            <summary>
+            Returns image black level (only for RAW and Mono formats).
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.ImgParams.image_params">
+            <summary>
+            Storing informations about the last image.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.#ctor">
+            <summary>
+            Constructor to initialize internal structure.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.ImgParams.UpdateValues(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Update internal data.
+            </summary>
+        </member>
+        <member name="T:xiApi.NET.xiCamEnum">
+            <summary>
+            Contains function definitions for fast camera enumeration and identification.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCamEnum.#ctor">
+            <summary>
+            Class contructor, initializes class variables.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCamEnum.Finalize">
+            <summary>
+            Class destructor, unitializes class variables.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCamEnum.ReEnumerate">
+            <summary>
+            Re-enumerate available cameras. Returns the number of currently available devices.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCamEnum.GetSerialNumById(System.Int32)">
+            <summary>
+            Retrieve serial number of device, in string format.
+            </summary>
+            <param name="devIndex">Index of device to be querried.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCamEnum.GetDevNameById(System.Int32)">
+            <summary>
+            Retrieve model name of device, in string format.
+            </summary>
+            <param name="devIndex">Index of device to be querried.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCamEnum.GetInstancePathById(System.Int32)">
+            <summary>
+            Retrieve system instance path of device, in string format.
+            </summary>
+            <param name="devIndex">Index of device to be querried.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCamEnum.GetDeviceTypeById(System.Int32)">
+            <summary>
+            Retrieve type of device, in string format.
+            </summary>
+            <param name="devIndex">Index of device to be querried.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCamEnum.GetDeviceUserIdById(System.Int32)">
+            <summary>
+            Retrieve type of device, in string format.
+            </summary>
+            <param name="devIndex">Index of device to be querried.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCamEnum.GetDeviceInfo(System.Int32,System.String)">
+            <summary>
+            Retrieve device info by ID, in string format.
+            </summary>
+            <param name="devIndex">Index of device to be querried.</param>
+            /// <param name="param">Parameter to be returned.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCamEnum.ThrowException(System.String)">
+            <summary>
+            Send exception with detailed information to user.
+            </summary>
+            <param name="message">Detailed information for receiver.</param>
+        </member>
+        <member name="T:xiApi.NET.xiCam">
+            <summary>
+            Contains function definitions for the xiAPI.NET class.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCam.#ctor">
+            <summary>
+            Class contructor, initializes class variables.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCam.Finalize">
+            <summary>
+            Class destructor, unitializes class variables.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetNumberDevices(System.Int32@)">
+            <summary>
+            Returns the number of all discovered devices.
+            </summary>
+            <param name="devCount">The number of connected devices.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetNumberDevices">
+            <summary>
+            Returns the number of all discovered devices.
+            </summary>
+            <returns>The number of connected devices.</returns>
+        </member>
+        <member name="M:xiApi.NET.xiCam.OpenDevice(System.Int32)">
+            <summary>
+            This function initializes the device.
+            </summary>
+            <param name="DevID">Index of the device</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.OpenDevice(xiApi.NET.xiCam.OpenDevBy,System.String)">
+            <summary>
+            This function initializes the device.
+            </summary>
+            <param name="Open_By">Method to be used when selecting the device to be opened, use OpenDevBy enumerator for selection.</param>
+            <param name="Param">Input parameter for device selection, e.g. serial number or instance path.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.CloseDevice">
+            <summary>
+            This function uninitializes the specified device
+            and releases allocated resources.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCam.StartAcquisition">
+            <summary>
+            This function starts the data acquisition on the device.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCam.StopAcquisition">
+            <summary>
+            This function stops the work cycle and data acquisition on the device.
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetImage(System.Windows.Media.Imaging.BitmapSource@,System.Int32)">
+            <summary>
+            This function acquires image and returns fills BitmapSource object.
+            </summary>
+            <param name="image">WPF BitmapSource to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetWriteableBitmapRef(System.Windows.Media.Imaging.WriteableBitmap@,System.Int32)">
+            <summary>
+            This function acquires image and returns fills WritableBitmap object. Supports UNSAFE buffer policy mode.
+            </summary>
+            <param name="image">WPF WriteableBitmap to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetImage(System.Windows.Media.Imaging.WriteableBitmap@,System.Int32)">
+            <summary>
+            This function acquires image and returns fills WritableBitmap object. Supports UNSAFE buffer policy mode.
+            </summary>
+            <param name="image">WPF WriteableBitmap to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetWriteableBitmap(System.Windows.Media.Imaging.WriteableBitmap,System.Int32)">
+            <summary>
+            This function acquires image and returns fills WritableBitmap object. Supports SAFE buffer policy mode.
+            </summary>
+            <param name="image">WPF WriteableBitmap to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetImage(System.Windows.Media.Imaging.WriteableBitmap,System.Int32)">
+            <summary>
+            This function acquires image and returns fills WritableBitmap object. Supports SAFE buffer policy mode.
+            </summary>
+            <param name="image">WPF WriteableBitmap to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetImageByteArray(System.Byte[],System.Int32)">
+            <summary>
+            This function acquires image into a byte array. Supports UNSAFE and SAFE buffer policy mode.
+            Image formats IMG_FORMAT.RAW16 and IMG_FORMAT.MONO16 are not supported.
+            </summary>
+            <param name="img_arr">Preallocated byte array to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetImage(System.Byte[]@,System.Int32)">
+            <summary>
+            This function acquires image into a byte array. Supports UNSAFE buffer policy mode.
+            </summary>
+            <param name="img_arr">Preallocated byte array to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetImage(System.Byte[],System.Int32)">
+            <summary>
+            This function acquires image into a byte array. Supports SAFE buffer policy mode.        
+            </summary>
+            <param name="img_arr">Preallocated byte array to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetBitmapRef(System.Drawing.Bitmap@,System.Int32)">
+            <summary>
+            This function acquires image and returns fills bitmap object. Supports UNSAFE buffer policy mode.
+            </summary>
+            <param name="image">GDI+ bitmap to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetImage(System.Drawing.Bitmap@,System.Int32)">
+            <summary>
+            This function acquires image and returns fills bitmap object. Supports UNSAFE buffer policy mode.
+            </summary>
+            <param name="image">GDI+ bitmap to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetBitmap(System.Drawing.Bitmap,System.Int32)">
+            <summary>
+            This function acquires image and returns fills bitmap object. Supports SAFE buffer policy mode.
+            </summary>
+            <param name="image">GDI+ bitmap to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetImage(System.Drawing.Bitmap,System.Int32)">
+            <summary>
+            This function acquires image and returns fills bitmap object. Supports SAFE buffer policy mode.
+            </summary>
+            <param name="image">GDI+ bitmap to be filled</param>
+            <param name="timeout">Time interval required to wait for the image (in milliseconds)</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetLastImageParams">
+            <summary>
+            This function returns more detailed information about the last image in the ImgParams object
+            </summary>
+        </member>
+        <member name="M:xiApi.NET.xiCam.SetParam(System.String,System.Int32)">
+            <summary>
+            This function configures the device. 
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to set parameters.</param>
+            <param name="val">Integer value to be set.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.SetParam(System.String,System.Single)">
+            <summary>
+            This function configures the device.
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to set parameters.</param>
+            <param name="val">Float value to be set.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.SetParam(System.String,System.String)">
+            <summary>
+            This function configures the device. 
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to set parameters.</param>
+            <param name="val">String value to be set.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetParam(System.String,System.Int32@)">
+            <summary>
+            This function returns parameters information (current value, minimum, maximum, info).  
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to get parameters.</param>
+            <param name="val">Integer value to be returned.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetParamInt(System.String)">
+            <summary>
+            This function returns parameters information (current value, minimum, maximum, info).  
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to get parameters.</param>
+            <returns>Integer value to be returned.</returns>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetParam(System.String,System.Single@)">
+            <summary>
+            This function returns parameters information (current value, minimum, maximum, info).  
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to get parameters.</param>
+            <param name="val">Float value to be returned.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetParamFloat(System.String)">
+            <summary>
+            This function returns parameters information (current value, minimum, maximum, info).  
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to get parameters.</param>
+            <returns>Float value to be returned.</returns>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetParam(System.String,System.Byte[]@,System.Int32@)">
+            <summary>
+            This function returns parameters information (current value, minimum, maximum, info).  
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to get parameters.</param>
+            <param name="val">Byte array value to be returned.</param>
+            <param name="val_len">Byte array lenght to be returned.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetParamByteArr(System.String)">
+            <summary>
+            This function returns parameters information (current value, minimum, maximum, info).  
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to get parameters.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetParam(System.String,System.String@)">
+            <summary>
+            This function returns parameters information (current value, minimum, maximum, info).  
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to get parameters.</param>
+            <param name="val">Byte array value to be returned.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetParam(System.String,System.String@,System.Int32@)">
+            <summary>
+            This function returns parameters information (current value, minimum, maximum, info).  
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to get parameters.</param>
+            <param name="val">String value to be returned.</param>
+            <param name="val_len">Buffer lenght to be returned.</param>
+        </member>
+        <member name="M:xiApi.NET.xiCam.GetParamString(System.String)">
+            <summary>
+            This function returns parameters information (current value, minimum, maximum, info).  
+            </summary>
+            <param name="prm">Parameter name string. Use class PRM to get parameters.</param>
+            <returns>String value to be returned.</returns>
+        </member>
+        <member name="T:xiApi.NET.xiCam.OpenDevBy">
+            <summary>
+            OpenDevice function paramameter enumerator, provides options to be used for selecting the appropriate 
+            camera to be opened.
+            </summary>
+        </member>
+        <member name="F:xiApi.NET.xiCam.OpenDevBy.Index">
+            <summary>Open camera by its index.</summary>
+        </member>
+        <member name="F:xiApi.NET.xiCam.OpenDevBy.SerialNumber">
+            <summary>Open camera by its serial number.</summary>
+        </member>
+        <member name="F:xiApi.NET.xiCam.OpenDevBy.SystemInstancePath">
+            <summary>Open camera by its system instance path.</summary>
+        </member>
+        <member name="F:xiApi.NET.xiCam.OpenDevBy.DeviceUserId">
+            <summary>Open camera by its user ID string.</summary>
+        </member>
+    </members>
+</doc>

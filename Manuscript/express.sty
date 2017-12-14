@@ -1,0 +1,377 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   File: express.sty                 %
+%                   Version: 1.2                      %
+%                   Created: 29 August 2017           %
+%                                                     %
+%     This style file requires the LaTeX2e article    %
+%     class and is provided for authors submitting    %
+%     to OSA's Express Journals, Optics Express,      %
+%     Biomedical Optics Express, and Optical          %
+%     Materials Express                               %
+%                                                     %
+%     express.sty invokes the following standard      %
+%     package files: geometry, color, graphicx        %
+%                    microtype                        %
+%                                                     %
+%     The following document preamble is appropriate  %
+%     with this style file:                           %
+%                                                     %
+%         \documentclass[10pt]{article}               %
+%         \usepackage{express}                        %
+%                                                     %
+%         (c) 2017 Optical Society of America         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3 of this license or any later version.
+% The latest version of this license is in
+% http://www.latex-project.org/lppl.txt and
+% version 1.3 or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+% \ProvidesPackage{opex3}[2003/06/10 LaTeX package for OSA Optics Express]
+% \ProvidesPackage{express}[2016/04/19 LaTeX package for OSA Optics Express]
+% \ProvidesPackage{express}[2016/07/05 LaTeX package for OSA Optics Express]
+%\ProvidesPackage{express}[2016/08/31 LaTeX package for OSA Optics Express]
+\ProvidesPackage{express}[2017/08/29 LaTeX package for OSA Optics Express]
+
+%% Packages
+\RequirePackage[letterpaper]{geometry}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+
+%% fonts
+\RequirePackage[T1]{fontenc}
+%% 5 Jul 2016: switched to newtx; removed textcomp
+\RequirePackage{newtxtext,newtxmath,courier}
+\RequirePackage{helvet}
+%% 17 Apr 2016: for letterspacing the title
+%% 26 May 2016: letterspacing doesn't work in latex + dvipdf, so need the soul package for that. See http://tex.stackexchange.com/a/271714/226
+%% 13 Jul 2016: ifpdf not available by default
+\RequirePackage{ifpdf}
+\ifpdf
+  \RequirePackage[tracking = true, letterspace = 16]{microtype}
+\else
+  \RequirePackage{microtype}
+  \RequirePackage{soul}
+  \soulregister\hspace7
+  \sodef\lscaps{}{.1em}{.4em plus.08em minus.06em}{.4em plus.15em minus.83em}%
+  \sodef\lsbold{}{.02em}{.3em plus.08em minus.06em}{.3em plus.15em minus.83em}%
+\fi
+
+%% 17 Apr 2016: colors for author list
+\definecolor{BOE}{RGB}{124,19,14}
+\definecolor{OME}{RGB}{20,120,182}
+\definecolor{OE}{RGB}{148,54,52}
+\definecolor{urlblue}{RGB}{46,46,177}
+
+\newcommand{\@authorcolor}{black}
+\DeclareOption{BOE}{\renewcommand{\@authorcolor}{BOE}}
+\DeclareOption{OME}{\renewcommand{\@authorcolor}{OME}}
+\DeclareOption{OE}{\renewcommand{\@authorcolor}{OE}}
+\ProcessOptions\relax
+
+
+%% Page-layout commands
+%% 12 pt = 1 pc; 6 pc = 1 in.
+%% 17 Apr 2016: top and bottom margins to 1.3in; left and right margins to 1.625in
+\geometry{nohead,left=1.625in,right=1.625in,top=1.3in,bottom=1.3in} %% uses geometry.sty
+\parindent1em %% em tied to font
+\parskip0pc
+\linespread{1}
+\pagestyle{empty}
+
+%% 17 Apr 2016: redefinitions of front matter formatting
+%% (headings are now sans serif; left-aligned)
+% \newcommand\OEtitle[1]{\LARGE \bf \hskip2.25pc \parbox{.8\textwidth}{ \noindent%
+%    \LARGE \bf \begin{center} #1 \end{center}\rm } \vskip.1in \rm\normalsize }
+\ifpdf
+  % microtype only works in pdflatex
+  \newcommand\OEtitle[1]{%
+    {\fontsize{16pt}{18.5pt}\sffamily\bfseries\selectfont\raggedright\textls{#1}\par\vskip.15in}
+  }
+\else
+  \newcommand\OEtitle[1]{%
+    {\fontsize{16pt}{18.5pt}\sffamily\bfseries\selectfont\raggedright\lsbold{#1}\par\vskip.15in}
+  }
+\fi
+
+% \newcommand\OEauthor[1]{\hskip2.25pc \parbox{.8\textwidth}{ \noindent%
+%    \normalsize \bf \begin{center} #1 \end{center}\rm } \vskip-1pc }
+\newcommand\OEauthor[1]{%
+{\raggedright\sffamily\bfseries\scshape\large \boldmath\color{\@authorcolor}#1\vskip1ex\par}%
+}
+
+% \newcommand\OEaddress[1]{\hskip2.25pc \parbox{.8\textwidth}{ \noindent%
+%    \footnotesize \it \begin{center} #1 \end{center}\rm }  \normalsize \vskip-.2cm }
+\newcommand\OEaddress[1]{%
+  {\raggedright\small\itshape #1\par}
+}
+
+%% 2 July 2016: fix the superscripts in author
+%% 31 August 2016: removed \upshape so that it follows
+%% the font style around
+\newcommand\authormark[1]{\textsuperscript{#1}}
+
+%% 1 July 2016: updated color for \url, \email and \homepage
+
+% \newcommand\OEemail[1]{\vskip-.3cm \parskip0pc\hskip2.25pc \footnotesize%
+%    \parbox{.8\textwidth}{\begin{center}\it \textcolor{blue}{\underline{#1}} \rm \end{center} } \normalsize  \vskip-.2cm}
+\newcommand\OEemail[1]{%
+  {\raggedright\footnotesize\itshape\color{urlblue}#1\par}
+}
+
+\newcommand\url[1]{\textcolor{urlblue}{\underline{#1}}}
+
+% \newcommand\homepage[1]{\vskip-1pt \parskip0pc\hskip2.25pc \footnotesize %% CHANGE 8-3-99
+%    \parbox{.8\textwidth}{\begin{center}\it \textcolor{blue}{\underline{#1}} \rm \end{center} } \normalsize\vskip-.2cm}
+\newcommand\homepage[1]{%
+  {\raggedright\footnotesize\itshape\color{urlblue}#1\par}
+}
+
+% \newcommand\ocis[1]{\vskip-2.75pc \begin{center}\parbox{.8\textwidth}{\footnotesize\bf OCIS codes: \rm #1 \hfill} \end{center}\vskip3pt}%
+\newcommand\ocis[1]{%
+  \vskip3pt{\raggedright\footnotesize\textbf{OCIS codes:\space}#1}\par\vskip1ex
+}
+
+\let\title\OEtitle
+\let\author\OEauthor
+\let\affil\OEaddress
+\let\address\OEaddress
+\let\email\OEemail
+\let\pacs\ocis
+
+% \renewenvironment{abstract}%%
+% {\vskip1pc\noindent\begin{center} \begin{minipage}{.8\textwidth} {\bf Abstract: \ } }
+% { \\ \vskip-.5pc \noindent \small \copyright \, \number\year \hskip.05in
+%    Optical Society of America \\ \hfil \end{minipage}\end{center}\normalsize\vskip-1.5pc}%
+%% 29 August 2017: Updated the copyright text to OA
+\renewenvironment{abstract}%%
+{\vskip1pc\noindent\textbf{Abstract:\space}}
+{\\[1ex]\noindent{\small\copyright\, \number\year \hskip.05in
+   Optical Society of America under the terms of the \href{https://doi.org/10.1364/OA_License_v1}{OSA Open Access Publishing Agreement}}\par}
+
+%% abstract* for papers exempt from copyright
+% \newenvironment{abstract*}%%
+% {\vskip1pc\noindent\begin{center} \begin{minipage}{.8\textwidth} {\bf Abstract: \ } }
+% {\end{minipage}\end{center}\normalsize\vskip-1.2pc}%
+\newenvironment{abstract*}%%
+{\vskip1pc\noindent\textbf{\textsf{Abstract:}\space}}
+{}
+
+
+%\newenvironment{abstract*}%%
+%{\vskip.9pc\noindent\begin{center} \begin{minipage}{.8\textwidth}{\bf Abstract: \ %}}{\end{minipage}\end{center}\vskip-1.2pc}%
+
+%% Various customizations
+\renewcommand\figurename{Fig.}
+\def\fps@table{h}%\def\fps@table{!htb}
+% \renewcommand\refname{\normalsize References and links \rm}
+\renewcommand\refname{References and links}
+
+%% New caption commands
+\newcommand\@MaxCapWidth{4.25in}
+\setlength\belowcaptionskip{1pt}
+\long\def\@makecaption#1#2{%
+  \small
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1. #2}%
+  \ifdim \wd\@tempboxa >\@MaxCapWidth
+    \hskip2.25pc\parbox{4.5in}{#1. #2}
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip\normalsize}
+
+%% New (more liberal than the default) float commands
+\renewcommand{\topfraction}{.85}
+\renewcommand{\bottomfraction}{.7}
+\renewcommand{\textfraction}{.15}
+\renewcommand{\floatpagefraction}{.66}
+\renewcommand{\dbltopfraction}{.66}
+\renewcommand{\dblfloatpagefraction}{.66}
+\setcounter{topnumber}{9}
+\setcounter{bottomnumber}{9}
+\setcounter{totalnumber}{20}
+\setcounter{dbltopnumber}{9}
+\sloppy
+
+
+%% Bibliography commands
+%% 13 Jul 2016: Added cite package
+\RequirePackage{cite}
+%% 13 Jul 2016: no indent
+% \setlength\bibindent{.2in}
+\renewenvironment{thebibliography}[1]
+     {\hrule \vskip-.5in \section*{\refname
+        \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}}%
+        \list{\@arabic\c@enumiv .\hfill}%      \list{\@biblabel{\@arabic\c@enumiv .}}%
+           {\settowidth\labelwidth{\footnotesize 99.}%{.25in}
+%               \leftmargin\labelwidth
+  \setlength{\parsep}{-0.05in}
+  \setlength{\labelsep}{.25em}%{0.5em}
+  \setlength{\itemsep}{0.05in}%{-0.06in}
+  \setlength{\listparindent}{0in}
+  \setlength{\itemindent}{0in}
+%   \setlength{\leftmargin}{.2in}
+  \setlength{\leftmargin}{\labelwidth}
+  \addtolength{\leftmargin}{\labelsep}
+  \setlength{\rightmargin}{0in}
+%             \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m \footnotesize}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist \hrule\vskip.2in}
+%\newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
+\let\@openbib@code\@empty
+\newcommand\OEReflinks{\thebibliography{}}
+\newcommand\References{\thebibliography{}}
+\let\endOEReferences\endthebibliography
+\let\endOEReflinks\endthebibliography
+\let\endReferences\endthebibliography
+
+%% New section parameters 4/28/2003 sdinee
+%% Authors may now use \cite \ref for section numbers
+
+\renewcommand\@seccntformat[1]{\csname the#1\endcsname.\quad }
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+%% 17 Apr 2016: headings are now sans serif
+\renewcommand\section{\@startsection {section}{1}{0pt}%
+                                     {-2.5ex plus -1ex minus -.2ex}%
+                                     {1.3ex plus .2ex}%
+                                     {\normalsize\bfseries\sffamily}}
+\renewcommand\subsection{\@startsection{subsection}{2}{0pt}%
+                                     {-2.25ex plus -1ex minus -.2ex}%
+                                     {1ex plus .2ex}%
+                                     {\normalsize\itshape\sffamily}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{0pt}%
+                                     {-2.25ex plus -1ex minus -.2ex}%
+                                     {1ex plus .2ex}%
+                                     {\small\upshape\sffamily}}
+\frenchspacing
+
+%% 1 July 2016: moved hyperref to here and changed urlcolor
+\RequirePackage[colorlinks=true,urlcolor=urlblue,linkcolor=black,citecolor=black,breaklinks=true,bookmarks=false]{hyperref}
+
+\hyphenation {ac-cord-ing
+           allow
+           back-scat-ter
+           back-scat-te-ring
+           back-scat-tered
+           scat-te-ring
+           Based based
+           cases
+           cen-tered
+           changed
+           co-incide
+           con-cerning
+           con-ven-tional
+           de-creased
+           de-po-lar-iz-ation
+           de-tector de-tectors
+           de-vi-ation
+           dis-cussion
+           dis-tribu-tion
+           dis-tribu-tions
+           dis-trib-ute
+           dis-trib-uted
+           Ehhalt
+           extinc-tion
+           found
+           Geest-hacht
+           ground
+           Hink-ley
+           il-lus-trated
+           il-lus-trate
+           Intro-ducing
+           Klap-heck
+           lati-tude
+           measure-ment
+           measure-ments
+           meas-ured
+           measuring
+           mixing
+           north-east
+           orig-inated
+           op-er-ating
+           out-flow
+           pres-ence
+           primary
+           rather
+           rela-tive
+           sig-nal
+           sig-nals
+           solid
+           tem-pera-ture
+           Tem-pera-ture
+           trans-ported
+           tropo-pause
+           Tropo-pause
+           tropo-sphere
+           Tropo-sphere
+           tube
+           tubes
+           Values
+           varies
+           Weather
+           re}
+
+%% Journal abbreviation macros
+\def\opex{ Opt.\ Express }
+\def\boe{ Biomed.\ Opt.\ Express }
+\def\ome{ Opt.\ Mater.\ Express }
+\def\ao{ Appl.\  Opt.\ }
+\def\aop{ Adv.\ Opt.\ Photon.\ }
+\def\ap{ Appl.\  Phys.\ }
+\def\apa{ Appl.\  Phys.\ A }
+\def\apb{ Appl.\  Phys.\ B }
+\def\apl{ Appl.\ Phys.\ Lett.\ }
+\def\apj{ Astrophys.\ J.\ }
+%\def\as{ Appl.\ Spectrosc.\ }--\as conflicts when authors use the siunitx package
+\def\bell{ Bell Syst.\ Tech.\ J.\ }
+\def\jqe{ IEEE J.\ Quantum Electron.\ }
+\def\assp{ IEEE Trans.\ Acoust.\ Speech Signal Process.\ }
+\def\aprop{ IEEE Trans.\ Antennas Propag.\ }
+\def\mtt{ IEEE Trans.\ Microwave Theory Tech.\ }
+\def\iovs{ Invest.\ Ophthalmol.\ Visual\ Sci.\ }
+\def\jcp{ J.\ Chem.\ Phys.\ }
+\def\jmo{ J.\ Mod.\ Opt.\ }
+\def\jocn{ J.\ Opt.\ Commun.\ Netw.\ }
+\def\jon{ J.\ Opt.\ Netw.\ }
+\def\josa{ J.\ Opt.\ Soc.\ Am.\ }
+\def\josaa{ J.\ Opt.\ Soc.\ Am.\ A }
+\def\josab{ J.\ Opt.\ Soc.\ Am.\ B }
+\def\jpp{ J.\ Phys.\ }
+\def\nat{ Nature }
+\def\oc{ Opt.\ Commun.\ }
+\def\ol{ Opt.\ Lett.\ }
+\def\opn{ Opt.\ Photon.\ News }
+\def\pl{ Phys.\ Lett.\ }
+\def\pra{ Phys.\ Rev.\ A }
+\def\prb{ Phys.\ Rev.\ B }
+\def\prc{ Phys.\ Rev.\ C }
+\def\prd{ Phys.\ Rev.\ D }
+\def\pre{ Phys.\ Rev.\ E }
+\def\prl{ Phys.\ Rev.\ Lett.\ }
+\def\pr{ Photon.\ Res.\ }
+\def\rmp{ Rev.\ Mod.\ Phys.\ }
+\def\pspie{ Proc.\ SPIE }
+\def\sjqe{ Sov.\ J.\ Quantum Electron.\ }
+\def\vr{ Vision Res.\ }
+\def\cleo{ {\it Conference on Lasers and Electro-Optics }}
+\def\assl{ {\it Advanced Solid State Lasers }}
+\def\tops{ Trends in Optics and Photonics }
+
+%% end express.sty

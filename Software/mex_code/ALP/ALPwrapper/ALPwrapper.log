@@ -1,0 +1,22 @@
+﻿Build started 12/15/2016 10:56:07 AM.
+     1>Project "C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\ALP\ALPwrapper\ALPwrapper.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\MATLAB\R2016a\\extern\include" /I"C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\ALP\ALP-4.2" /Zi /nologo /W3 /WX- /O2 /Ob1 /D MX_COMPAT_32 /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D SELECTLABELS_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\x64\Release\\" /Fd".\x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt ALPwrapper.cpp
+         ALPwrapper.cpp
+     1>ALPwrapper.cpp(414): warning C4244: 'initializing' : conversion from 'double' to 'long', possible loss of data
+     1>ALPwrapper.cpp(702): warning C4101: 'index_field' : unreferenced local variable
+     1>c:\users\shayo\dropbox (mit)\code\github\fiberimaging\code\mex_code\alp\alpwrapper\alpwrapper.cpp(208): warning C4700: uninitialized local variable 'TriggerInDelay' used
+     1>c:\users\shayo\dropbox (mit)\code\github\fiberimaging\code\mex_code\alp\alpwrapper\alpwrapper.cpp(208): warning C4700: uninitialized local variable 'SynchPulseWidth' used
+     1>c:\users\shayo\dropbox (mit)\code\github\fiberimaging\code\mex_code\alp\alpwrapper\alpwrapper.cpp(208): warning C4700: uninitialized local variable 'SynchDelay' used
+     1>c:\users\shayo\dropbox (mit)\code\github\fiberimaging\code\mex_code\alp\alpwrapper\alpwrapper.cpp(208): warning C4700: uninitialized local variable 'PictureTime' used
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\ALP\ALPwrapper\x64\Release\ALPwrapper.dll) does not match the Linker's OutputFile property value (C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex\ALPwrapper.mexw64). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1194,5): warning MSB8012: TargetExt(.dll) does not match the Linker's OutputFile property value (.mexw64). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"../../../mex/ALPwrapper.mexw64" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Program Files\MATLAB\R2016a\\extern\lib\win64\microsoft" /LIBPATH:"C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\ALP\ALP-4.2\x64\\" odbc32.lib odbccp32.lib libmx.lib libmex.lib alpV42.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:".\ALPwrapper.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\x64\Release\fndllALPwrapper.pdb" /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"x64\Release\ALPwrapper.lib" /MACHINE:X64 /DLL .\x64\Release\ALPwrapper.obj
+            Creating library x64\Release\ALPwrapper.lib and object x64\Release\ALPwrapper.exp
+         ALPwrapper.vcxproj -> C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\ALP\ALPwrapper\x64\Release\ALPwrapper.dll
+     1>Done Building Project "C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\ALP\ALPwrapper\ALPwrapper.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.55

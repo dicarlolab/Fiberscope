@@ -1,0 +1,24 @@
+﻿Build started 4/4/2017 4:19:47 PM.
+     1>Project "C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\DAQusb\DAQusb.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\MATLAB\R2016a\\extern\include" /I..\DAQ /Zi /nologo /W3 /WX- /O2 /Ob1 /D MX_COMPAT_32 /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D SELECTLABELS_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\x64\Release\\" /Fd".\x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt DAQusb.cpp
+         DAQusb.cpp
+     1>C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\DAQ\cbw.h(529): warning C4005: 'HIGH_LEVEL' : macro redefinition
+                 C:\Program Files (x86)\Windows Kits\8.1\Include\shared\kernelspecs.h(58) : see previous definition of 'HIGH_LEVEL'
+     1>DAQusb.cpp(273): warning C4018: '<' : signed/unsigned mismatch
+     1>DAQusb.cpp(649): warning C4244: 'initializing' : conversion from 'double' to 'long', possible loss of data
+     1>DAQusb.cpp(679): warning C4800: 'double' : forcing value to bool 'true' or 'false' (performance warning)
+     1>DAQusb.cpp(694): warning C4800: 'double' : forcing value to bool 'true' or 'false' (performance warning)
+     1>DAQusb.cpp(710): warning C4800: 'double' : forcing value to bool 'true' or 'false' (performance warning)
+     1>DAQusb.cpp(811): warning C4018: '<' : signed/unsigned mismatch
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\DAQusb\x64\Release\DAQusb.mexw64) does not match the Linker's OutputFile property value (C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex\fnDAQusb.mexw64). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(DAQusb) does not match the Linker's OutputFile property value (fnDAQusb). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"../../mex/fnDAQusb.mexw64" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Program Files\MATLAB\R2016a\\extern\lib\win64\microsoft" /LIBPATH:../DAQ odbc32.lib odbccp32.lib libmx.lib libmex.lib libmat.lib cbw64.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:".\fnDAQusb.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\x64\Release\fndllfnDAQusb.pdb" /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"x64\Release\DAQusb.lib" /MACHINE:X64 /DLL .\x64\Release\DAQusb.obj
+            Creating library x64\Release\DAQusb.lib and object x64\Release\DAQusb.exp
+         DAQusb.vcxproj -> C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\DAQusb\x64\Release\DAQusb.mexw64
+     1>Done Building Project "C:\Users\shayo\Dropbox (MIT)\Code\Github\FiberImaging\Code\mex_code\DAQusb\DAQusb.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.54
